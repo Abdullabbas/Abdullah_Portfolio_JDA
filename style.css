@@ -2843,6 +2843,9 @@ img {
   .contact-item {
     font-size: 0.72rem;
   }
+  .availability-badge {
+    width: 320px;
+  }
 }
 
 /* =========================================================
