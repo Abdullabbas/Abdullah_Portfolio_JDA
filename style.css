@@ -754,10 +754,10 @@ img {
 
 .floating-card-one {
   top: 30px;
-  left: 0;
+  right: 410px;
 }
 .floating-card-two {
-  right: 0;
+  left: 390px;
   bottom: 35px;
   animation-delay: -2s;
 }
@@ -922,6 +922,9 @@ img {
   border: 1px solid var(--border);
   border-radius: var(--radius);
   transition: var(--transition);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .skill-card:hover {
@@ -2850,7 +2853,7 @@ img {
   .container {
     width: calc(100% - 24px);
   }
-  .availability-badge{
+  .availability-badge {
     font-size: 0.79rem;
     width: fit-content;
   }
