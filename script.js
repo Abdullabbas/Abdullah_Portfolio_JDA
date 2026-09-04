@@ -405,95 +405,60 @@ document.addEventListener("keydown", (event) => {
    PROFILE MODAL
 ========================= */
 
-const profileTrigger =
-    document.getElementById("profileTrigger");
+const profileTrigger = document.getElementById("profileTrigger");
 
-const profileModal =
-    document.getElementById("profileModal");
+const profileModal = document.getElementById("profileModal");
 
-const profileModalClose =
-    document.getElementById("profileModalClose");
+const profileModalClose = document.getElementById("profileModalClose");
 
-const profileModalOverlay =
-    document.getElementById("profileModalOverlay");
+const profileModalOverlay = document.getElementById("profileModalOverlay");
 
-const profileCloseBtn =
-    document.getElementById("profileCloseBtn");
+const profileCloseBtn = document.getElementById("profileCloseBtn");
 
-const profileProjectsBtn =
-    document.getElementById("profileProjectsBtn");
-
+const profileProjectsBtn = document.getElementById("profileProjectsBtn");
 
 /* =========================
    OPEN PROFILE
 ========================= */
 
 profileTrigger.addEventListener("click", (event) => {
+  event.preventDefault();
 
-    event.preventDefault();
+  profileModal.classList.add("active");
 
-    profileModal.classList.add("active");
-
-    document.body.style.overflow = "hidden";
-
+  document.body.style.overflow = "hidden";
 });
-
 
 /* =========================
    CLOSE PROFILE
 ========================= */
 
 function closeProfileModal() {
+  profileModal.classList.remove("active");
 
-    profileModal.classList.remove("active");
-
-    document.body.style.overflow = "";
-
+  document.body.style.overflow = "";
 }
 
+profileModalClose.addEventListener("click", closeProfileModal);
 
-profileModalClose.addEventListener(
-    "click",
-    closeProfileModal
-);
+profileModalOverlay.addEventListener("click", closeProfileModal);
 
-
-profileModalOverlay.addEventListener(
-    "click",
-    closeProfileModal
-);
-
-
-profileCloseBtn.addEventListener(
-    "click",
-    closeProfileModal
-);
-
+profileCloseBtn.addEventListener("click", closeProfileModal);
 
 /* =========================
    VIEW PROJECTS
 ========================= */
 
 profileProjectsBtn.addEventListener("click", () => {
-
-    closeProfileModal();
-
+  closeProfileModal();
 });
-
 
 /* =========================
    ESC KEY
 ========================= */
 
 document.addEventListener("keydown", (event) => {
-
-    if (
-        event.key === "Escape" &&
-        profileModal.classList.contains("active")
-    ) {
-
-        closeProfileModal();
-
-    }
-
+  if (event.key === "Escape" && profileModal.classList.contains("active")) {
+    closeProfileModal();
+  }
 });
