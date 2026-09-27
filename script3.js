@@ -182,7 +182,7 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
 
 const projectData = {
   superstore: {
-    image: "src/Screenshot 2026-08-31 080354.png",
+    image: "src/PJ1.png",
     tags: ["Excel", "Power Query"],
     github: "https://github.com/Abdullabbas",
     live: "#",
@@ -242,61 +242,71 @@ const projectData = {
     },
   },
 
-  "retail-model": {
-    image: "src/Screenshot 2026-08-31 090422.png",
-    tags: ["Power BI", "Data Modeling"],
+  "marketing-campaigns": {
+    image: "src/pj2 p1.png",
+    images: [
+      "src/pj2 p2.png",
+      "src/pj2 p3.png",
+      "src/pj2 p4.png",
+      "src/pj2 p5.png",
+      "src/pj2 p6.png",
+      "src/pj2 p7.png",
+    ],
+    tags: ["Power BI", "Marketing Analytics"],
     github: "https://github.com/Abdullabbas",
     live: "#",
     showGithub: false,
     showLive: false,
 
     en: {
-      title: "Retail Data Model",
+      title: "Marketing Campaigns Analysis",
 
       description:
-        "A structured retail data model designed to organize business data and provide a reliable foundation for analysis and reporting.",
+        "An interactive dashboard analyzing 800 marketing campaigns across 6 channels, uncovering top-performing channels and proposing a data-driven budget reallocation for next year.",
 
-      goal: "Create a clean and scalable data model that connects customers, products, orders, and dates for efficient business analysis.",
+      goal: "Analyze past campaign performance to find what is working and what is not, and turn that into a clear budget recommendation for next year.",
 
       process: [
-        "Identified the main fact table and dimension tables.",
-        "Created Customer, Product, and Date dimensions.",
-        "Defined relationships between tables.",
-        "Structured the model using a star-schema approach.",
-        "Prepared the model for Power BI reporting.",
-        "Created measures for business analysis.",
+        "Built DAX measures for ROAS, CTR, CPC, CVR, CPA, and AOV.",
+        "Compared channel performance by spend share vs revenue share.",
+        "Analyzed campaign types and audiences to find the strongest combinations.",
+        "Studied monthly trends across 2024 and 2025.",
+        "Investigated campaign-level outliers to test whether they were real.",
+        "Designed a 7-page Power BI dashboard, one page per key question.",
       ],
 
       insights: [
-        "Improved data organization and consistency.",
-        "Created a reusable model for different reports.",
-        "Made filtering and analysis more efficient.",
-        "Prepared the dataset for interactive Power BI dashboards.",
+        "Email outperforms every paid channel by a wide margin, since it carries no media cost.",
+        "LinkedIn takes the largest share of spend but returns the smallest share of revenue.",
+        "Retargeting delivers the strongest return; Awareness the weakest despite the largest budget.",
+        "The best-performing campaigns cluster at low spend, suggesting limited room to scale as-is.",
+        "Proposed shifting budget from LinkedIn and Google Ads into TikTok and Email.",
       ],
     },
 
     ar: {
-      title: "نموذج بيانات التجزئة",
+      title: "تحليل حملات التسويق",
 
       description:
-        "نموذج بيانات منظّم لقطاع التجزئة صُمم لتنظيم بيانات الأعمال وتوفير أساس موثوق للتحليل وإعداد التقارير.",
+        "لوحة تحكم تفاعلية لتحليل 800 حملة تسويقية عبر 6 قنوات، تكشف أفضل القنوات أداءً وتقترح إعادة توزيع الميزانية للعام القادم.",
 
-      goal: "إنشاء نموذج بيانات نظيف وقابل للتوسع يربط بين العملاء والمنتجات والطلبات والتواريخ لتحليل أعمال فعّال.",
+      goal: "تحليل أداء الحملات السابقة لمعرفة ما ينجح وما لا ينجح، وتحويل ذلك إلى توصية واضحة لميزانية العام القادم.",
 
       process: [
-        "تحديد جدول الحقائق الرئيسي وجداول الأبعاد.",
-        "إنشاء أبعاد العميل والمنتج والتاريخ.",
-        "تحديد العلاقات بين الجداول.",
-        "هيكلة النموذج باستخدام نهج المخطط النجمي (Star Schema).",
-        "تجهيز النموذج لإعداد التقارير في Power BI.",
-        "إنشاء مقاييس لتحليل الأعمال.",
+        "بناء مقاييس DAX لـ ROAS و CTR و CPC و CVR و CPA و AOV.",
+        "مقارنة أداء القنوات من خلال نسبة الإنفاق مقابل نسبة الإيراد.",
+        "تحليل أنواع الحملات والجماهير لإيجاد أقوى التوليفات.",
+        "دراسة الاتجاهات الشهرية عبر عامي 2024 و2025.",
+        "فحص القيم الشاذة على مستوى الحملة لاختبار مدى واقعيتها.",
+        "تصميم لوحة تحكم من 7 صفحات في Power BI، كل صفحة تجيب عن سؤال رئيسي.",
       ],
 
       insights: [
-        "تحسين تنظيم البيانات واتساقها.",
-        "إنشاء نموذج قابل لإعادة الاستخدام في تقارير مختلفة.",
-        "جعل عمليات التصفية والتحليل أكثر كفاءة.",
-        "تجهيز البيانات للوحات تحكم Power BI التفاعلية.",
+        "قناة البريد الإلكتروني تتفوق بفارق كبير على كل القنوات المدفوعة، لأنها بلا تكلفة إعلانية.",
+        "LinkedIn تأخذ أكبر نسبة من الميزانية لكنها ترجع أقل نسبة من الإيراد.",
+        "حملات الـ Retargeting تحقق أفضل عائد؛ وحملات الـ Awareness الأضعف رغم أكبر ميزانية.",
+        "أفضل الحملات أداءً تتركز عند إنفاق منخفض، ما يشير لمساحة محدودة للتوسع بنفس الكفاءة.",
+        "التوصية: تحويل جزء من ميزانية LinkedIn وGoogle Ads إلى TikTok والبريد الإلكتروني.",
       ],
     },
   },
@@ -338,6 +348,54 @@ const modalLive = document.getElementById("modalLive");
 
 let activeProjectId = null;
 
+let galleryIndex = 0;
+
+function renderGallery(images, altText) {
+  galleryIndex = 0;
+  const modalImage = document.getElementById("modalImage");
+
+  modalImage.innerHTML = `
+    <div class="modal-gallery">
+      <img src="${images[0]}" alt="${altText}" class="modal-gallery-img" />
+      <button
+        type="button"
+        class="modal-gallery-arrow modal-gallery-prev"
+        aria-label="Previous image"
+      >
+        <i class="fa-solid fa-chevron-left"></i>
+      </button>
+      <button
+        type="button"
+        class="modal-gallery-arrow modal-gallery-next"
+        aria-label="Next image"
+      >
+        <i class="fa-solid fa-chevron-right"></i>
+      </button>
+      <div class="modal-gallery-counter">1 / ${images.length}</div>
+    </div>
+  `;
+
+  const imgEl = modalImage.querySelector(".modal-gallery-img");
+  const counterEl = modalImage.querySelector(".modal-gallery-counter");
+  const prevBtn = modalImage.querySelector(".modal-gallery-prev");
+  const nextBtn = modalImage.querySelector(".modal-gallery-next");
+
+  function updateGallery() {
+    imgEl.src = images[galleryIndex];
+    counterEl.textContent = `${galleryIndex + 1} / ${images.length}`;
+  }
+
+  prevBtn.addEventListener("click", () => {
+    galleryIndex = (galleryIndex - 1 + images.length) % images.length;
+    updateGallery();
+  });
+
+  nextBtn.addEventListener("click", () => {
+    galleryIndex = (galleryIndex + 1) % images.length;
+    updateGallery();
+  });
+}
+
 function renderProjectModal(projectId) {
   const project = projectData[projectId];
 
@@ -355,7 +413,12 @@ function renderProjectModal(projectId) {
   modalDescription.textContent = localized.description;
 
   const modalImage = document.getElementById("modalImage");
-  modalImage.innerHTML = `<img src="${project.image}" alt="${localized.title}">`;
+
+  if (project.images && project.images.length > 1) {
+    renderGallery(project.images, localized.title);
+  } else {
+    modalImage.innerHTML = `<img src="${project.image}" alt="${localized.title}">`;
+  }
 
   /* Tags */
 

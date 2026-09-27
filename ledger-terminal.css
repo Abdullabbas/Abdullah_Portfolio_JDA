@@ -2478,3 +2478,139 @@ html[dir="rtl"] .experience-list li::before {
     max-width: 100%;
   }
 }
+.modal-gallery {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.modal-gallery-img {
+  width: 100%;
+  display: block;
+}
+
+.modal-gallery-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.55);
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s ease;
+  /* keeps the tap target comfortable on touch screens */
+  -webkit-tap-highlight-color: transparent;
+}
+
+.modal-gallery-arrow:hover {
+  background: rgba(0, 0, 0, 0.8);
+}
+
+.modal-gallery-prev {
+  left: 12px;
+}
+
+.modal-gallery-next {
+  right: 12px;
+}
+
+.modal-gallery-counter {
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+  background: rgba(0, 0, 0, 0.55);
+  color: #fff;
+  font-size: 12px;
+  padding: 3px 10px;
+  border-radius: 12px;
+}
+
+/* Tablet and small laptop */
+@media (max-width: 768px) {
+  .modal-gallery-arrow {
+    width: 36px;
+    height: 36px;
+    font-size: 14px;
+  }
+
+  .modal-gallery-prev {
+    left: 8px;
+  }
+
+  .modal-gallery-next {
+    right: 8px;
+  }
+
+  .modal-gallery-counter {
+    bottom: 8px;
+    right: 8px;
+    font-size: 11px;
+    padding: 2px 8px;
+  }
+}
+
+/* Phones */
+@media (max-width: 480px) {
+  .modal-gallery-arrow {
+    width: 32px;
+    height: 32px;
+    font-size: 13px;
+  }
+
+  .modal-gallery-prev {
+    left: 6px;
+  }
+
+  .modal-gallery-next {
+    right: 6px;
+  }
+
+  .modal-gallery-counter {
+    font-size: 10px;
+    padding: 2px 7px;
+  }
+}
+
+/* RTL support: mirror arrow positions when the page is in Arabic (dir="rtl") */
+[dir="rtl"] .modal-gallery-prev {
+  left: auto;
+  right: 12px;
+}
+
+[dir="rtl"] .modal-gallery-next {
+  right: auto;
+  left: 12px;
+}
+
+[dir="rtl"] .modal-gallery-counter {
+  right: auto;
+  left: 12px;
+}
+
+@media (max-width: 768px) {
+  [dir="rtl"] .modal-gallery-prev {
+    right: 8px;
+  }
+  [dir="rtl"] .modal-gallery-next {
+    left: 8px;
+  }
+  [dir="rtl"] .modal-gallery-counter {
+    left: 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  [dir="rtl"] .modal-gallery-prev {
+    right: 6px;
+  }
+  [dir="rtl"] .modal-gallery-next {
+    left: 6px;
+  }
+}
