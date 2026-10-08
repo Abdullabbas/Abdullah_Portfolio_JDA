@@ -1508,8 +1508,55 @@ html[dir="rtl"] .modal-section li::before {
 
 .modal-actions {
   display: flex;
-  gap: 12px;
+  flex-wrap: wrap;
+  gap: 14px;
   margin-top: 8px;
+  padding: 0 6px 6px 0; /* room for the stamp shadow so it never clips */
+}
+
+/* Modal buttons: terminal / "stamp" style to match the rest of the modal */
+.modal-actions .btn {
+  font-family: var(--font-mono);
+  font-size: 0.88rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  padding: 12px 22px;
+  border-radius: var(--radius-m);
+}
+html[dir="rtl"] .modal-actions .btn {
+  font-family: var(--font-ar);
+  letter-spacing: 0;
+}
+
+.btn-demo {
+  background: var(--amber-soft);
+  border-color: var(--amber);
+  color: var(--amber);
+  box-shadow: 0 0 0 0 var(--amber);
+}
+.btn-demo::before {
+  content: ">";
+  opacity: 0.7;
+  transition: transform 0.3s var(--ease-spring);
+}
+html[dir="rtl"] .btn-demo::before {
+  content: "<";
+}
+.btn-demo:hover {
+  background: var(--bg);
+  color: var(--amber);
+  transform: translate(-3px, -3px);
+  box-shadow: 4px 4px 0 var(--amber);
+}
+.btn-demo:hover::before {
+  transform: translateX(3px);
+}
+.btn-demo:hover i {
+  transform: translate(3px, -3px);
+}
+.btn-demo:active {
+  transform: translate(0, 0) !important;
+  box-shadow: 0 0 0 0 var(--amber);
 }
 
 /* ---------- 10. EXPERIENCE TIMELINE ---------- */

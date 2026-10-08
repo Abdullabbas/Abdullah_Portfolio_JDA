@@ -254,9 +254,9 @@ const projectData = {
     ],
     tags: ["Power BI", "Marketing Analytics"],
     github: "https://github.com/Abdullabbas",
-    live: "#",
+    live: "https://drive.google.com/file/d/1qezyIcdvR-vQP3-K6HUDsWK1PPhzoJqu/view",
     showGithub: false,
-    showLive: false,
+    showLive: true,
 
     en: {
       title: "Marketing Campaigns Analysis",
