@@ -927,6 +927,273 @@ html[dir="rtl"] .chart::after {
   }
 } */
 
+/* ---------- HERO: workflow pipeline + skill bars ---------- */
+.hero-label {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--text-faint);
+  letter-spacing: 0.04em;
+  margin-bottom: 16px;
+}
+html[dir="rtl"] .hero-label {
+  font-family: var(--font-ar);
+  letter-spacing: 0;
+}
+.hero-label b {
+  color: var(--amber);
+  font-weight: 600;
+}
+
+.pipeline {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  margin-bottom: 30px;
+  direction: ltr; /* data always flows left to right */
+}
+.pipeline::before {
+  content: "";
+  position: absolute;
+  top: 19px;
+  left: 12.5%;
+  right: 12.5%;
+  height: 1px;
+  background: repeating-linear-gradient(
+    to right,
+    var(--border-strong) 0 6px,
+    transparent 6px 12px
+  );
+}
+.pipe-packet {
+  position: absolute;
+  top: 15px;
+  left: 12.5%;
+  width: 9px;
+  height: 9px;
+  margin-left: -4.5px;
+  border-radius: 50%;
+  background: var(--amber);
+  box-shadow: 0 0 14px 2px rgba(255, 180, 84, 0.7);
+  opacity: 0;
+  z-index: 2;
+  animation: pipe-packet 6s linear infinite;
+}
+@keyframes pipe-packet {
+  0% {
+    left: 12.5%;
+    opacity: 0;
+  }
+  3% {
+    opacity: 1;
+  }
+  75% {
+    left: 87.5%;
+    opacity: 1;
+  }
+  82%,
+  100% {
+    left: 87.5%;
+    opacity: 0;
+  }
+}
+.pipe-step {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 6px;
+}
+.pipe-node {
+  width: 38px;
+  height: 38px;
+  border-radius: var(--radius-m);
+  background: var(--surface);
+  border: 1px solid var(--border-strong);
+  color: var(--text-faint);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.88rem;
+  animation: pipe-node 6s ease-in-out infinite;
+  animation-delay: calc(var(--i) * 1.5s);
+}
+@keyframes pipe-node {
+  0% {
+    border-color: var(--border-strong);
+    color: var(--text-faint);
+    background: var(--surface);
+    box-shadow: 0 0 0 0 transparent;
+  }
+  5%,
+  22% {
+    border-color: var(--amber);
+    color: var(--amber);
+    background: var(--amber-soft);
+    box-shadow: 0 0 0 4px var(--amber-soft);
+  }
+  30%,
+  100% {
+    border-color: var(--border-strong);
+    color: var(--text-faint);
+    background: var(--surface);
+    box-shadow: 0 0 0 0 transparent;
+  }
+}
+.pipe-name {
+  font-size: 0.78rem;
+  color: var(--text);
+  margin-top: 4px;
+}
+.pipe-tool {
+  font-family: var(--font-mono);
+  font-size: 0.64rem;
+  color: var(--text-faint);
+}
+
+.term-log {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-height: 118px;
+  padding: 14px 16px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-m);
+  background: var(--bg-alt);
+}
+html[dir="rtl"] .term-line {
+  font-family: var(--font-ar);
+  font-size: 0.82rem;
+}
+body.light-theme .term-log {
+  background: var(--surface-2);
+}
+body.light-theme .term-line {
+  color: var(--teal-dim);
+}
+body.light-theme .term-line.t5 {
+  color: var(--amber-dim);
+}
+body.light-theme .pipe-packet {
+  box-shadow: 0 0 12px 2px rgba(201, 122, 30, 0.55);
+}
+.term-line {
+  display: block;
+  width: 0;
+  max-width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  color: var(--teal);
+  animation-duration: 6s;
+  animation-timing-function: steps(26, end);
+  animation-iteration-count: infinite;
+}
+.term-line.t5 {
+  color: var(--amber);
+}
+.t1 {
+  animation-name: type-t1;
+}
+.t2 {
+  animation-name: type-t2;
+}
+.t3 {
+  animation-name: type-t3;
+}
+.t4 {
+  animation-name: type-t4;
+}
+.t5 {
+  animation-name: type-t5;
+}
+@keyframes type-t1 {
+  0%,
+  0% {
+    width: 0;
+  }
+  18%,
+  98% {
+    width: 100%;
+  }
+  98.1%,
+  100% {
+    width: 0;
+  }
+}
+@keyframes type-t2 {
+  0%,
+  25% {
+    width: 0;
+  }
+  43%,
+  98% {
+    width: 100%;
+  }
+  98.1%,
+  100% {
+    width: 0;
+  }
+}
+@keyframes type-t3 {
+  0%,
+  50% {
+    width: 0;
+  }
+  68%,
+  98% {
+    width: 100%;
+  }
+  98.1%,
+  100% {
+    width: 0;
+  }
+}
+@keyframes type-t4 {
+  0%,
+  75% {
+    width: 0;
+  }
+  93%,
+  98% {
+    width: 100%;
+  }
+  98.1%,
+  100% {
+    width: 0;
+  }
+}
+@keyframes type-t5 {
+  0%,
+  84% {
+    width: 0;
+  }
+  92%,
+  98% {
+    width: 100%;
+  }
+  98.1%,
+  100% {
+    width: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pipe-packet {
+    display: none;
+  }
+  .pipe-node {
+    animation: none;
+  }
+  .term-line {
+    animation: none;
+    width: 100%;
+  }
+}
+
 .floating-card {
   position: absolute;
   background: var(--surface);
@@ -969,7 +1236,7 @@ html[dir="rtl"] .chart::after {
   animation-delay: 0s;
 }
 .floating-card-two {
-  bottom: -8%;
+  bottom: -13%;
   inset-inline-start: -9%;
   animation-delay: 1.6s;
 }

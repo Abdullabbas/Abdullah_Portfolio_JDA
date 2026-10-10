@@ -187,10 +187,8 @@
                     ></span
                   >
                   <h3>
-                    <span
-                      data-ar="نظرة عامة على الأعمال"
-                      data-en="Business Overview"
-                      >Business Overview</span
+                    <span data-ar="طريقة عملي" data-en="How I Work"
+                      >How I Work</span
                     >
                   </h3>
                 </div>
@@ -198,48 +196,97 @@
                   <i class="fa-solid fa-terminal"></i>
                 </div>
               </div>
-              <div class="chart">
-                <div class="chart-line"></div>
-                <div class="chart-point point-1"></div>
-                <div class="chart-point point-2"></div>
-                <div class="chart-point point-3"></div>
-                <div class="chart-point point-4"></div>
-                <div class="chart-point point-5"></div>
-                <div class="chart-point point-6"></div>
+              <!-- workflow pipeline -->
+              <span class="hero-label"
+                ><b>&gt;</b>
+                <span data-ar="تشغيل خط المعالجة" data-en="run pipeline"
+                  >run pipeline</span
+                ></span
+              >
+              <div class="pipeline">
+                <span class="pipe-packet"></span>
+                <div class="pipe-step" style="--i: 0">
+                  <span class="pipe-node"
+                    ><i class="fa-solid fa-database"></i
+                  ></span>
+                  <strong class="pipe-name"
+                    ><span data-ar="البيانات الخام" data-en="Raw Data"
+                      >Raw Data</span
+                    ></strong
+                  >
+                  <span class="pipe-tool">Excel</span>
+                </div>
+                <div class="pipe-step" style="--i: 1">
+                  <span class="pipe-node"
+                    ><i class="fa-solid fa-broom"></i
+                  ></span>
+                  <strong class="pipe-name"
+                    ><span data-ar="التنظيف" data-en="Clean"
+                      >Clean</span
+                    ></strong
+                  >
+                  <span class="pipe-tool">Power Query</span>
+                </div>
+                <div class="pipe-step" style="--i: 2">
+                  <span class="pipe-node"
+                    ><i class="fa-solid fa-diagram-project"></i
+                  ></span>
+                  <strong class="pipe-name"
+                    ><span data-ar="النمذجة" data-en="Model"
+                      >Model</span
+                    ></strong
+                  >
+                  <span class="pipe-tool">DAX</span>
+                </div>
+                <div class="pipe-step" style="--i: 3">
+                  <span class="pipe-node"
+                    ><i class="fa-solid fa-chart-column"></i
+                  ></span>
+                  <strong class="pipe-name"
+                    ><span data-ar="لوحة المعلومات" data-en="Dashboard"
+                      >Dashboard</span
+                    ></strong
+                  >
+                  <span class="pipe-tool">Power BI</span>
+                </div>
               </div>
-              <div class="stats">
-                <div class="stat">
-                  <span
-                    ><span data-ar="المبيعات" data-en="Sales">Sales</span></span
-                  >
-                  <strong
-                    ><span data-ar="$84.2K" data-en="$84.2K"
-                      >$84.2K</span
-                    ></strong
-                  >
-                </div>
-                <div class="stat">
-                  <span
-                    ><span data-ar="الأرباح" data-en="Profit"
-                      >Profit</span
-                    ></span
-                  >
-                  <strong
-                    ><span data-ar="$21.8K" data-en="$21.8K"
-                      >$21.8K</span
-                    ></strong
-                  >
-                </div>
-                <div class="stat">
-                  <span
-                    ><span data-ar="النمو" data-en="Growth">Growth</span></span
-                  >
-                  <strong
-                    ><span data-ar="+18.4%" data-en="+18.4%"
-                      >+18.4%</span
-                    ></strong
-                  >
-                </div>
+
+              <!-- live terminal log, synced with the pipeline -->
+              <span class="hero-label"
+                ><b>&gt;</b>
+                <span data-ar="المخرجات" data-en="output">output</span></span
+              >
+              <div class="term-log" aria-hidden="true">
+                <span
+                  class="term-line t1"
+                  data-ar="✓ تحميل 800 حملة"
+                  data-en="✓ loaded 800 campaigns"
+                  >✓ loaded 800 campaigns</span
+                >
+                <span
+                  class="term-line t2"
+                  data-ar="✓ التنظيف بـ Power Query"
+                  data-en="✓ cleaned with Power Query"
+                  >✓ cleaned with Power Query</span
+                >
+                <span
+                  class="term-line t3"
+                  data-ar="✓ بناء 20 مقاييس DAX"
+                  data-en="✓ 20 DAX measures built"
+                  >✓ 20 DAX measures built</span
+                >
+                <span
+                  class="term-line t4"
+                  data-ar="✓ تسليم لوحة من 7 صفحات"
+                  data-en="✓ shipped 7-page dashboard"
+                  >✓ shipped 7-page dashboard</span
+                >
+                <span
+                  class="term-line t5"
+                  data-ar="← النتيجة: الإيميل يتفوق على الإعلانات"
+                  data-en="→ insight: Email beats paid ads"
+                  >→ insight: Email beats paid ads</span
+                >
               </div>
             </div>
             <div class="floating-card floating-card-one">
@@ -650,16 +697,9 @@
                 <i class="fa-brands fa-github"></i>
                 <span data-ar="GitHub" data-en="GitHub">GitHub</span>
               </a>
-              <a
-                class="btn btn-demo"
-                href="#"
-                id="modalLive"
-                target="_blank"
-              >
+              <a class="btn btn-demo" href="#" id="modalLive" target="_blank">
                 <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                <span data-ar="عرض مباشر" data-en="Live Demo"
-                  >Live Demo</span
-                >
+                <span data-ar="عرض مباشر" data-en="Live Demo">Live Demo</span>
               </a>
             </div>
           </div>
@@ -1463,10 +1503,7 @@
           <i class="fa-solid fa-xmark"></i>
         </button>
         <div class="profile-modal-image">
-          <img
-            alt="Abdullah"
-            src="src/profilePic.jpeg"
-          />
+          <img alt="Abdullah" src="src/profilePic.jpeg" />
         </div>
         <div class="profile-modal-info">
           <span class="profile-modal-label">
