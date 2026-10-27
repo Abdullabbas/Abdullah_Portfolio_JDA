@@ -253,10 +253,9 @@ const projectData = {
       "src/pj2 p7.png",
     ],
     tags: ["Power BI", "Marketing Analytics"],
-    github: "https://github.com/Abdullabbas",
-    live: "https://drive.google.com/file/d/1qezyIcdvR-vQP3-K6HUDsWK1PPhzoJqu/view",
-    showGithub: false,
-    showLive: true,
+    github:
+      "https://github.com/Abdullabbas/Abdullah_Projects/tree/main/Market%20Analysis%20Digitera%20Training%20Final%20Project",
+    showGithub: true,
 
     en: {
       title: "Marketing Campaigns Analysis",
@@ -307,6 +306,67 @@ const projectData = {
         "حملات الـ Retargeting تحقق أفضل عائد؛ وحملات الـ Awareness الأضعف رغم أكبر ميزانية.",
         "أفضل الحملات أداءً تتركز عند إنفاق منخفض، ما يشير لمساحة محدودة للتوسع بنفس الكفاءة.",
         "التوصية: تحويل جزء من ميزانية LinkedIn وGoogle Ads إلى TikTok والبريد الإلكتروني.",
+      ],
+    },
+  },
+
+  "hr-analysis": {
+    image: "src/p3 1.png",
+    images: ["src/p3 1.png", "src/p3 2.png", "src/p3 3.png", "src/p3 4.png"],
+    tags: ["Power BI", "HR Analytics"],
+    github:
+      "https://github.com/Abdullabbas/Abdullah_Projects/tree/main/HR%20Analysis%20Dashboard%20DEPI%20Project",
+    showGithub: true,
+
+    en: {
+      title: "HR Analysis Dashboard",
+
+      description:
+        "An interactive 4-page dashboard analyzing 6,500 employees, covering workforce, attrition, engagement and satisfaction, performance, attendance, and learning.",
+
+      goal: "Give HR a clear view of the workforce, where and why people leave, how employees feel, and whether performance, attendance, and training are aligned.",
+
+      process: [
+        "Built a star-schema data model with a central HR fact table and dimension tables for date, department, job role, location, education, and employment status.",
+        "Created DAX measures for headcount, attrition rate, average tenure, satisfaction scores, recommendation rate, attendance rate, and training completion rate.",
+        "Designed a 4-page Power BI dashboard, one page per key HR question.",
+        "Added slicers for department, year, region, tenure band, job level, and employment type.",
+        "Added hover tooltips with key insights on every page.",
+      ],
+
+      insights: [
+        "The company has 6,500 employees; 5,744 are active and 756 have left, an attrition rate of 11.63%.",
+        "Engineering is the largest department (1,345 employees), followed by Sales (1,020).",
+        "95.24% of exits are voluntary, so most attrition is a retention problem, not a performance one.",
+        "Career Growth (198), Compensation (139), and Workload (138) are the top exit reasons; December has the most exits (89).",
+        "Satisfaction is nearly identical across all departments (about 3.53), and 70.47% of employees would recommend the company.",
+        "Attendance is strong at 96.06%, while training completion is lower at 77.49%.",
+      ],
+    },
+
+    ar: {
+      title: "تحليل الموارد البشرية",
+
+      description:
+        "لوحة تحكم تفاعلية من 4 صفحات لتحليل 6,500 موظف، تغطي القوى العاملة ومعدل ترك العمل والرضا الوظيفي والأداء والحضور والتدريب.",
+
+      goal: "منح فريق الموارد البشرية رؤية واضحة عن القوى العاملة، وأين ولماذا يغادر الموظفون، وكيف يشعرون، وهل الأداء والحضور والتدريب متوافقة.",
+
+      process: [
+        "بناء نموذج بيانات نجمي بجدول حقائق مركزي للموارد البشرية وجداول أبعاد للتاريخ والقسم والوظيفة والموقع والتعليم وحالة التوظيف.",
+        "إنشاء مقاييس DAX لعدد الموظفين ومعدل ترك العمل ومتوسط مدة الخدمة ودرجات الرضا ونسبة التوصية ونسبة الحضور ونسبة إكمال التدريب.",
+        "تصميم لوحة تحكم من 4 صفحات في Power BI، كل صفحة تجيب عن سؤال رئيسي.",
+        "إضافة فلاتر للقسم والسنة والمنطقة وفئة مدة الخدمة والمستوى الوظيفي ونوع التوظيف.",
+        "إضافة نوافذ منبثقة عند التمرير تعرض أهم الرؤى في كل صفحة.",
+      ],
+
+      insights: [
+        "يبلغ عدد الموظفين 6,500؛ منهم 5,744 على رأس العمل و756 غادروا، بمعدل ترك عمل 11.63%.",
+        "قسم الهندسة هو الأكبر (1,345 موظف) يليه المبيعات (1,020).",
+        "95.24% من حالات الخروج اختيارية، أي أن المشكلة في الاحتفاظ بالموظفين وليست في الأداء.",
+        "فرص النمو الوظيفي (198) والتعويضات (139) وضغط العمل (138) أهم أسباب المغادرة؛ وشهر ديسمبر الأعلى خروجًا (89).",
+        "الرضا الوظيفي متقارب جدًا بين كل الأقسام (حوالي 3.53)، و70.47% من الموظفين يوصون بالشركة.",
+        "نسبة الحضور قوية (96.06%) بينما نسبة إكمال التدريب أقل (77.49%).",
       ],
     },
   },

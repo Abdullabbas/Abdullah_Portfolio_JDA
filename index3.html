@@ -5,9 +5,9 @@
     <link href="src/WebPic.png" rel="icon" type="png" />
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>Abdullah Ahmed Abbas | Junior Data Analyst</title>
+    <title>Abdullah Ahmed Abbas | Data Analyst</title>
     <meta
-      content="Abdullah Ahmed Abbas - Junior Data Analyst specializing in Excel, Power BI, Python and data visualization."
+      content="Abdullah Ahmed Abbas - Data Analyst specializing in Excel, Power BI, Python and data visualization."
       name="description"
     />
     <link href="https://fonts.googleapis.com" rel="preconnect" />
@@ -21,6 +21,61 @@
       rel="stylesheet"
     />
     <link href="ledger-terminal.css" rel="stylesheet" />
+    <style>
+      .showcase-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 28px;
+      }
+      .showcase-item {
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+        padding: 0;
+        background: none;
+        border: 0;
+        color: inherit;
+        font: inherit;
+        text-align: center;
+        cursor: pointer;
+      }
+      .showcase-title {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        font-size: 1.25rem;
+        font-weight: 700;
+      }
+      .showcase-frame {
+        overflow: hidden;
+        border-radius: 14px;
+        border: 1px solid rgba(128, 128, 128, 0.3);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
+        transition:
+          transform 0.3s,
+          box-shadow 0.3s;
+      }
+      .showcase-frame img {
+        display: block;
+        width: 100%;
+        height: auto;
+      }
+      .showcase-item:hover .showcase-frame {
+        transform: translateY(-6px);
+        box-shadow: 0 16px 40px rgba(0, 0, 0, 0.28);
+      }
+      .nav-menu {
+        gap: clamp(12px, 1.5vw, 26px);
+      }
+      .nav-menu .nav-link,
+      .nav-menu .nav-link span {
+        font-family: inherit;
+        font-size: inherit;
+        font-weight: inherit;
+        white-space: nowrap;
+      }
+    </style>
   </head>
   <body>
     <!-- ================= NAVBAR ================= -->
@@ -35,7 +90,7 @@
             <img
               alt="Abdullah"
               class="nav-profile-pic"
-              src="src/profilePic.jpeg"
+              src="src/profilePic.png"
             />
           </button>
           <a href="#home">
@@ -50,25 +105,26 @@
           <a class="nav-link" href="#about"
             ><span data-ar="نبذة عني" data-en="About">About</span></a
           >
+          <a class="nav-link" href="#education"
+            ><span data-ar="التعليم" data-en="Education">Education</span></a
+          >
+
           <a class="nav-link" href="#skills"
             ><span data-ar="المهارات" data-en="Skills">Skills</span></a
           >
-          <a class="nav-link" href="#projects"
-            ><span data-ar="المشاريع" data-en="Projects">Projects</span></a
+          <a class="nav-link" href="#services"
+            ><span data-ar="الخدمات" data-en="Services">Services</span></a
           >
           <a class="nav-link" href="#experience"
-            ><span data-ar="العملية" data-en="Experience">Experience</span></a
-          >
-          <a class="nav-link" href="#education"
-            ><span data-ar="التعليم" data-en="Education">Education</span></a
+            ><span data-ar="التدريبات" data-en="Trainings">Training</span></a
           >
           <a class="nav-link" href="#certifications"
             ><span data-ar="الشهادات" data-en="Certifications"
               >Certifications</span
             ></a
           >
-          <a class="nav-link" href="#services"
-            ><span data-ar="الخدمات" data-en="Services">Services</span></a
+          <a class="nav-link" href="#projects"
+            ><span data-ar="المشاريع" data-en="Projects">Projects</span></a
           >
           <a class="nav-link" href="#contact"
             ><span data-ar="تواصل" data-en="Contact">Contact</span></a
@@ -119,8 +175,8 @@
               <span><span data-ar="Abbas" data-en="Abbas">Abbas</span></span>
             </h1>
             <h2>
-              <span data-ar="محلل بيانات مبتدئ" data-en="Junior Data Analyst"
-                >Junior Data Analyst</span
+              <span data-ar="محلل بيانات" data-en="Data Analyst"
+                >Data Analyst</span
               >
             </h2>
             <p class="hero-description">
@@ -439,6 +495,109 @@
           </div>
         </div>
       </section>
+      <!-- ================= EDUCATION ================= -->
+      <section class="education section" id="education">
+        <div class="container">
+          <div class="section-heading center reveal">
+            <span class="section-label"
+              ><span data-ar="التعليم" data-en="Education"
+                >Education</span
+              ></span
+            >
+            <h2>
+              <span data-ar="التعليم" data-en="Education">Education</span>
+              <span
+                ><span
+                  data-ar="&amp; Academic Background"
+                  data-en="&amp; Academic Background"
+                  >&amp; Academic Background</span
+                ></span
+              >
+            </h2>
+            <p>
+              <span
+                data-ar="بناء أساس قوي في علوم الحاسب والبرمجة وتحليل البيانات."
+                data-en="Building a strong foundation in computer science, programming, and data analysis."
+                >Building a strong foundation in computer science, programming,
+                and data analysis.</span
+              >
+            </p>
+          </div>
+          <div class="education-container">
+            <div class="education-card">
+              <div class="education-icon">
+                <i class="fa-solid fa-graduation-cap"></i>
+              </div>
+              <div class="education-content">
+                <div class="education-top">
+                  <div>
+                    <span class="education-type">
+                      <span
+                        data-ar="درجة البكالوريوس"
+                        data-en="BACHELOR'S DEGREE"
+                        >BACHELOR'S DEGREE</span
+                      >
+                    </span>
+                    <h3>
+                      <span
+                        data-ar="كلية الحاسبات والذكاء الاصطناعي"
+                        data-en="Faculty of Computers &amp; Artificial Intelligence"
+                        >Faculty of Computers &amp; Artificial
+                        Intelligence</span
+                      >
+                    </h3>
+                    <h4>
+                      <span
+                        data-ar="Helwan University"
+                        data-en="Helwan University"
+                        >Helwan University</span
+                      >
+                    </h4>
+                  </div>
+                  <span class="education-date">
+                    <span data-ar="2026 — 2030" data-en="2026 — 2030"
+                      >2026 — 2030</span
+                    >
+                  </span>
+                </div>
+                <p>
+                  <span
+                    data-ar="دراسة علوم الحاسب والذكاء الاصطناعي مع التركيز على البرمجة وحل المشكلات وتحليل البيانات والتقنيات الحديثة."
+                    data-en="Studying computer science and artificial intelligence with a focus on programming, problem solving, data analysis, and emerging technologies."
+                    >Studying computer science and artificial intelligence with
+                    a focus on programming, problem solving, data analysis, and
+                    emerging technologies.</span
+                  >
+                </p>
+                <div class="education-tags">
+                  <span
+                    ><span data-ar="علوم الحاسب" data-en="Computer Science"
+                      >Computer Science</span
+                    ></span
+                  >
+                  <span
+                    ><span data-ar="تحليل البيانات" data-en="Data Analysis"
+                      >Data Analysis</span
+                    ></span
+                  >
+                  <span
+                    ><span data-ar="البرمجة" data-en="Programming"
+                      >Programming</span
+                    ></span
+                  >
+                  <span
+                    ><span
+                      data-ar="الذكاء الاصطناعي"
+                      data-en="Artificial Intelligence"
+                      >Artificial Intelligence</span
+                    ></span
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
       <!-- ================= SKILLS ================= -->
       <section class="skills section" id="skills">
         <div class="container">
@@ -507,218 +666,129 @@
 
       <!--Content was Removed -->
 
-      <!-- ================= PROJECTS ================= -->
-      <section class="projects section" id="projects">
+      <!-- ================= SERVICES ================= -->
+      <section class="services section" id="services">
         <div class="container">
           <div class="section-heading center reveal">
             <span class="section-label"
-              ><span data-ar="أبرز المشاريع" data-en="FEATURED PROJECTS"
-                >FEATURED PROJECTS</span
+              ><span data-ar="ما أقدمه" data-en="WHAT I DO"
+                >WHAT I DO</span
               ></span
             >
             <h2>
-              <span data-ar="تحويل البيانات إلى" data-en="Turning data into"
-                >Turning data into</span
-              >
+              <span data-ar="كيف يمكنني" data-en="How I can">How I can</span>
               <span
-                ><span data-ar="رؤى حقيقية." data-en="real insights."
-                  >real insights.</span
+                ><span data-ar="مساعدتك." data-en="help you."
+                  >help you.</span
                 ></span
               >
             </h2>
             <p>
               <span
-                data-ar="مجموعة من مشاريع تحليل البيانات التي تركز على مشكلات الأعمال والتصور واتخاذ القرار."
-                data-en="A collection of data analysis projects focused on business problems, visualization, and decision-making."
-                >A collection of data analysis projects focused on business
-                problems, visualization, and decision-making.</span
+                data-ar="أحوّل المعلومات الخام إلى رؤى مفيدة للأعمال."
+                data-en="I transform raw information into useful business insights."
+                >I transform raw information into useful business
+                insights.</span
               >
             </p>
           </div>
-          <div class="projects-grid">
-            <!-- ================= PROJECT 1 ================= -->
-            <article class="project-card reveal">
-              <!-- 1. الصورةتحطها هنا فوق خالص مكان الـ dashboard-preview القديم -->
-              <div class="project-image project-one">
-                <img alt="Superstore Sales Dashboard" src="src/PJ1.png" />
+          <div class="services-grid">
+            <div class="service-card reveal">
+              <div class="service-number">
+                <span data-ar="01" data-en="01">01</span>
               </div>
-              <!-- 2. باقي الكارت زي ما هو وما تحطش فيه أي صور تحت -->
-              <div class="project-content">
-                <div class="project-tags">
-                  <span
-                    ><span data-ar="Excel" data-en="Excel">Excel</span></span
-                  >
-                  <span
-                    ><span data-ar="Power Query" data-en="Power Query"
-                      >Power Query</span
-                    ></span
-                  >
-                </div>
-                <h3>
-                  <span
-                    data-ar="لوحة مبيعات Superstore"
-                    data-en="Superstore Sales Dashboard"
-                    >Superstore Sales Dashboard</span
-                  >
-                </h3>
-                <p>
-                  <span
-                    data-ar="لوحة معلومات تفاعلية لبيانات التجزئة لتحليل المبيعات والربحية وشرائح العملاء والفئات والأداء الإقليمي."
-                    data-en="An interactive retail dashboard designed to analyze sales, profitability, customer segments, categories, and regional performance."
-                    >An interactive retail dashboard designed to analyze sales,
-                    profitability, customer segments, categories, and regional
-                    performance.</span
-                  >
-                </p>
-                <div class="project-meta">
-                  <span>
-                    <i class="fa-solid fa-bullseye"></i>
-                    <span data-ar="تحليل المبيعات" data-en="Sales Analysis"
-                      >Sales Analysis</span
-                    >
-                  </span>
-                </div>
-                <button
-                  class="project-link project-details-btn"
-                  data-project="superstore"
+              <i class="fa-solid fa-broom"></i>
+              <h3>
+                <span data-ar="تنظيف البيانات" data-en="Data Cleaning"
+                  >Data Cleaning</span
                 >
-                  <span data-ar="عرض المشروع" data-en="View Project"
-                    >View Project</span
-                  >
-                  <i class="fa-solid fa-arrow-right"></i>
-                </button>
-              </div>
-            </article>
-            <!-- ================= PROJECT 2 ================= -->
-            <article class="project-card reveal">
-              <div class="project-image project-two">
-                <img alt="Marketing Campaigns Analysis" src="src/pj2 p1.png" />
-              </div>
-              <div class="project-content">
-                <div class="project-tags">
-                  <span
-                    ><span data-ar="Power BI" data-en="Power BI"
-                      >Power BI</span
-                    ></span
-                  >
-                  <span
-                    ><span data-ar="تحليل التسويق" data-en="Marketing Analytics"
-                      >Marketing Analytics</span
-                    ></span
-                  >
-                </div>
-                <h3>
-                  <span
-                    data-ar="تحليل حملات التسويق"
-                    data-en="Marketing Campaigns Analysis"
-                    >Marketing Campaigns Analysis</span
-                  >
-                </h3>
-                <p>
-                  <span
-                    data-ar="لوحة تحكم تفاعلية لتحليل 800 حملة تسويقية عبر 6 قنوات، تكشف أفضل القنوات أداءً وتقترح إعادة توزيع الميزانية للعام القادم."
-                    data-en="An interactive dashboard analyzing 800 marketing campaigns across 6 channels, uncovering top-performing channels and proposing a data-driven budget reallocation for next year."
-                    >An interactive dashboard analyzing 800 marketing campaigns
-                    across 6 channels, uncovering top-performing channels and
-                    proposing a data-driven budget reallocation for next
-                    year.</span
-                  >
-                </p>
-                <div class="project-meta">
-                  <span>
-                    <i class="fa-solid fa-chart-line"></i>
-                    <span data-ar="تحليل السوق" data-en="Market Analysis"
-                      >Market Analysis</span
-                    >
-                  </span>
-                </div>
-                <button
-                  class="project-link project-details-btn"
-                  data-project="marketing-campaigns"
+              </h3>
+              <p>
+                <span
+                  data-ar="تنظيف وتنظيم وتجهيز مجموعات البيانات الخام لتحليل دقيق."
+                  data-en="Clean, organize, and prepare raw datasets for accurate analysis."
+                  >Clean, organize, and prepare raw datasets for accurate
+                  analysis.</span
                 >
-                  <span data-ar="عرض المشروع" data-en="View Project"
-                    >View Project</span
-                  >
-                  <i class="fa-solid fa-arrow-right"></i>
-                </button>
+              </p>
+            </div>
+            <div class="service-card reveal">
+              <div class="service-number">
+                <span data-ar="02" data-en="02">02</span>
               </div>
-            </article>
+              <i class="fa-solid fa-magnifying-glass-chart"></i>
+              <h3>
+                <span data-ar="تحليل البيانات" data-en="Data Analysis"
+                  >Data Analysis</span
+                >
+              </h3>
+              <p>
+                <span
+                  data-ar="اكتشاف الاتجاهات والأنماط والرؤى التي تدعم قرارات أفضل."
+                  data-en="Discover trends, patterns, and insights that support better decisions."
+                  >Discover trends, patterns, and insights that support better
+                  decisions.</span
+                >
+              </p>
+            </div>
+            <div class="service-card reveal">
+              <div class="service-number">
+                <span data-ar="03" data-en="03">03</span>
+              </div>
+              <i class="fa-solid fa-chart-pie"></i>
+              <h3>
+                <span data-ar="لوحات المعلومات" data-en="Dashboards"
+                  >Dashboards</span
+                >
+              </h3>
+              <p>
+                <span
+                  data-ar="إنشاء لوحات معلومات واضحة وتفاعلية باستخدام Excel وPower BI."
+                  data-en="Create clear and interactive dashboards using Excel and Power BI."
+                  >Create clear and interactive dashboards using Excel and Power
+                  BI.</span
+                >
+              </p>
+            </div>
+            <div class="service-card reveal">
+              <div class="service-number">
+                <span data-ar="04" data-en="04">04</span>
+              </div>
+              <i class="fa-solid fa-file-lines"></i>
+              <h3>
+                <span data-ar="إعداد التقارير" data-en="Reporting"
+                  >Reporting</span
+                >
+              </h3>
+              <p>
+                <span
+                  data-ar="تحويل البيانات المعقدة إلى تقارير ومؤشرات أداء بسيطة وسهلة الفهم."
+                  data-en="Turn complex data into simple, understandable reports and KPIs."
+                  >Turn complex data into simple, understandable reports and
+                  KPIs.</span
+                >
+              </p>
+            </div>
           </div>
         </div>
       </section>
-      <!-- ================= PROJECT DETAILS MODAL ================= -->
-      <div class="project-modal" id="projectModal">
-        <div class="modal-overlay" id="modalOverlay"></div>
-        <div class="modal-content">
-          <button class="modal-close" id="modalClose">
-            <i class="fa-solid fa-xmark"></i>
-          </button>
-          <div class="modal-image" id="modalImage">
-            <div class="modal-image-placeholder">
-              <i class="fa-solid fa-chart-column"></i>
-            </div>
-          </div>
-          <div class="modal-body">
-            <div class="project-tags" id="modalTags"></div>
-            <h2 id="modalTitle"></h2>
-            <p class="modal-description" id="modalDescription"></p>
-            <div class="modal-section">
-              <h3>
-                <i class="fa-solid fa-bullseye"></i>
-                <span data-ar="هدف المشروع" data-en="Project Goal"
-                  >Project Goal</span
-                >
-              </h3>
-              <p id="modalGoal"></p>
-            </div>
-            <div class="modal-section">
-              <h3>
-                <i class="fa-solid fa-screwdriver-wrench"></i>
-                <span data-ar="ما قمت به" data-en="What I Did">What I Did</span>
-              </h3>
-              <ul id="modalProcess"></ul>
-            </div>
-            <div class="modal-section">
-              <h3>
-                <i class="fa-solid fa-lightbulb"></i>
-                <span data-ar="أهم الرؤى" data-en="Key Insights"
-                  >Key Insights</span
-                >
-              </h3>
-              <ul id="modalInsights"></ul>
-            </div>
-            <div class="modal-actions">
-              <a
-                class="btn btn-outline"
-                href="#"
-                id="modalGithub"
-                target="_blank"
-              >
-                <i class="fa-brands fa-github"></i>
-                <span data-ar="GitHub" data-en="GitHub">GitHub</span>
-              </a>
-              <a class="btn btn-demo" href="#" id="modalLive" target="_blank">
-                <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                <span data-ar="عرض مباشر" data-en="Live Demo">Live Demo</span>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
       <!-- ================= EXPERIENCE ================= -->
       <section class="experience section" id="experience">
         <div class="container">
           <div class="section-heading center reveal">
             <span class="section-label"
-              ><span data-ar="الخبرة" data-en="EXPERIENCE"
-                >EXPERIENCE</span
+              ><span
+                data-ar="التدريبات والتطوعات"
+                data-en="TRAININGS &amp; VOLUNTEERS"
+                >TRAINING &amp; VOLUNTEERS</span
               ></span
             >
             <h2>
-              <span data-ar="خبرتي" data-en="My">My</span>
               <span
-                ><span data-ar="العملية" data-en="Experience"
-                  >Experience</span
+                ><span
+                  data-ar="التدريب والتطوع"
+                  data-en="Training &amp; Volunteers"
+                  >Training &amp; Volunteers</span
                 ></span
               >
             </h2>
@@ -746,10 +816,8 @@
                       >
                     </span>
                     <h3>
-                      <span
-                        data-ar="محلل بيانات مبتدئ"
-                        data-en="Junior Data Analyst"
-                        >Junior Data Analyst</span
+                      <span data-ar="محلل بيانات" data-en="Data Analyst"
+                        >Data Analyst</span
                       >
                     </h3>
                     <h4>
@@ -1012,109 +1080,6 @@
           </div>
         </div>
       </section>
-      <!-- ================= EDUCATION ================= -->
-      <section class="education section" id="education">
-        <div class="container">
-          <div class="section-heading center reveal">
-            <span class="section-label"
-              ><span data-ar="التعليم" data-en="Education"
-                >Education</span
-              ></span
-            >
-            <h2>
-              <span data-ar="التعليم" data-en="Education">Education</span>
-              <span
-                ><span
-                  data-ar="&amp; Academic Background"
-                  data-en="&amp; Academic Background"
-                  >&amp; Academic Background</span
-                ></span
-              >
-            </h2>
-            <p>
-              <span
-                data-ar="بناء أساس قوي في علوم الحاسب والبرمجة وتحليل البيانات."
-                data-en="Building a strong foundation in computer science, programming, and data analysis."
-                >Building a strong foundation in computer science, programming,
-                and data analysis.</span
-              >
-            </p>
-          </div>
-          <div class="education-container">
-            <div class="education-card">
-              <div class="education-icon">
-                <i class="fa-solid fa-graduation-cap"></i>
-              </div>
-              <div class="education-content">
-                <div class="education-top">
-                  <div>
-                    <span class="education-type">
-                      <span
-                        data-ar="درجة البكالوريوس"
-                        data-en="BACHELOR'S DEGREE"
-                        >BACHELOR'S DEGREE</span
-                      >
-                    </span>
-                    <h3>
-                      <span
-                        data-ar="كلية الحاسبات والذكاء الاصطناعي"
-                        data-en="Faculty of Computers &amp; Artificial Intelligence"
-                        >Faculty of Computers &amp; Artificial
-                        Intelligence</span
-                      >
-                    </h3>
-                    <h4>
-                      <span
-                        data-ar="Helwan University"
-                        data-en="Helwan University"
-                        >Helwan University</span
-                      >
-                    </h4>
-                  </div>
-                  <span class="education-date">
-                    <span data-ar="2026 — 2030" data-en="2026 — 2030"
-                      >2026 — 2030</span
-                    >
-                  </span>
-                </div>
-                <p>
-                  <span
-                    data-ar="دراسة علوم الحاسب والذكاء الاصطناعي مع التركيز على البرمجة وحل المشكلات وتحليل البيانات والتقنيات الحديثة."
-                    data-en="Studying computer science and artificial intelligence with a focus on programming, problem solving, data analysis, and emerging technologies."
-                    >Studying computer science and artificial intelligence with
-                    a focus on programming, problem solving, data analysis, and
-                    emerging technologies.</span
-                  >
-                </p>
-                <div class="education-tags">
-                  <span
-                    ><span data-ar="علوم الحاسب" data-en="Computer Science"
-                      >Computer Science</span
-                    ></span
-                  >
-                  <span
-                    ><span data-ar="تحليل البيانات" data-en="Data Analysis"
-                      >Data Analysis</span
-                    ></span
-                  >
-                  <span
-                    ><span data-ar="البرمجة" data-en="Programming"
-                      >Programming</span
-                    ></span
-                  >
-                  <span
-                    ><span
-                      data-ar="الذكاء الاصطناعي"
-                      data-en="Artificial Intelligence"
-                      >Artificial Intelligence</span
-                    ></span
-                  >
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
       <!-- ================= CERTIFICATIONS ================= -->
       <section class="certifications section" id="certifications">
         <div class="container">
@@ -1291,112 +1256,235 @@
           </div>
         </div>
       </section>
-      <!-- ================= SERVICES ================= -->
-      <section class="services section" id="services">
+      <!-- ================= PROJECTS ================= -->
+      <section class="projects section" id="projects">
         <div class="container">
           <div class="section-heading center reveal">
             <span class="section-label"
-              ><span data-ar="ما أقدمه" data-en="WHAT I DO"
-                >WHAT I DO</span
+              ><span data-ar="أبرز المشاريع" data-en="FEATURED PROJECTS"
+                >FEATURED PROJECTS</span
               ></span
             >
             <h2>
-              <span data-ar="كيف يمكنني" data-en="How I can">How I can</span>
+              <span data-ar="تحويل البيانات إلى" data-en="Turning data into"
+                >Turning data into</span
+              >
               <span
-                ><span data-ar="مساعدتك." data-en="help you."
-                  >help you.</span
+                ><span data-ar="رؤى حقيقية." data-en="real insights."
+                  >real insights.</span
                 ></span
               >
             </h2>
             <p>
               <span
-                data-ar="أحوّل المعلومات الخام إلى رؤى مفيدة للأعمال."
-                data-en="I transform raw information into useful business insights."
-                >I transform raw information into useful business
-                insights.</span
+                data-ar="مجموعة من مشاريع تحليل البيانات التي تركز على مشكلات الأعمال والتصور واتخاذ القرار."
+                data-en="A collection of data analysis projects focused on business problems, visualization, and decision-making."
+                >A collection of data analysis projects focused on business
+                problems, visualization, and decision-making.</span
               >
             </p>
           </div>
-          <div class="services-grid">
-            <div class="service-card reveal">
-              <div class="service-number">
-                <span data-ar="01" data-en="01">01</span>
+          <div class="projects-grid">
+            <!-- ================= PROJECT 1 ================= -->
+            <article class="project-card reveal">
+              <!-- 1. الصورةتحطها هنا فوق خالص مكان الـ dashboard-preview القديم -->
+              <div class="project-image project-one">
+                <img alt="Superstore Sales Dashboard" src="src/PJ1.png" />
               </div>
-              <i class="fa-solid fa-broom"></i>
-              <h3>
-                <span data-ar="تنظيف البيانات" data-en="Data Cleaning"
-                  >Data Cleaning</span
+              <!-- 2. باقي الكارت زي ما هو وما تحطش فيه أي صور تحت -->
+              <div class="project-content">
+                <div class="project-tags">
+                  <span
+                    ><span data-ar="Excel" data-en="Excel">Excel</span></span
+                  >
+                  <span
+                    ><span data-ar="تحليل مبيعات" data-en="Sales Analysis"
+                      >Sales Analysis</span
+                    ></span
+                  >
+                </div>
+                <h3>
+                  <span
+                    data-ar="لوحة مبيعات Superstore"
+                    data-en="Superstore Sales Dashboard"
+                    >Superstore Sales Dashboard</span
+                  >
+                </h3>
+                <p>
+                  <span
+                    data-ar="لوحة معلومات تفاعلية لبيانات التجزئة لتحليل المبيعات والربحية وشرائح العملاء والفئات والأداء الإقليمي."
+                    data-en="An interactive retail dashboard designed to analyze sales, profitability, customer segments, categories, and regional performance."
+                    >An interactive retail dashboard designed to analyze sales,
+                    profitability, customer segments, categories, and regional
+                    performance.</span
+                  >
+                </p>
+                <button
+                  class="project-link project-details-btn"
+                  data-project="superstore"
                 >
-              </h3>
-              <p>
-                <span
-                  data-ar="تنظيف وتنظيم وتجهيز مجموعات البيانات الخام لتحليل دقيق."
-                  data-en="Clean, organize, and prepare raw datasets for accurate analysis."
-                  >Clean, organize, and prepare raw datasets for accurate
-                  analysis.</span
-                >
-              </p>
-            </div>
-            <div class="service-card reveal">
-              <div class="service-number">
-                <span data-ar="02" data-en="02">02</span>
+                  <span data-ar="عرض المشروع" data-en="View Project"
+                    >View Project</span
+                  >
+                  <i class="fa-solid fa-arrow-right"></i>
+                </button>
               </div>
-              <i class="fa-solid fa-magnifying-glass-chart"></i>
-              <h3>
-                <span data-ar="تحليل البيانات" data-en="Data Analysis"
-                  >Data Analysis</span
-                >
-              </h3>
-              <p>
-                <span
-                  data-ar="اكتشاف الاتجاهات والأنماط والرؤى التي تدعم قرارات أفضل."
-                  data-en="Discover trends, patterns, and insights that support better decisions."
-                  >Discover trends, patterns, and insights that support better
-                  decisions.</span
-                >
-              </p>
-            </div>
-            <div class="service-card reveal">
-              <div class="service-number">
-                <span data-ar="03" data-en="03">03</span>
+            </article>
+            <!-- ================= PROJECT 2 ================= -->
+            <article class="project-card reveal">
+              <div class="project-image project-two">
+                <img alt="Marketing Campaigns Analysis" src="src/pj2 p1.png" />
               </div>
-              <i class="fa-solid fa-chart-pie"></i>
-              <h3>
-                <span data-ar="لوحات المعلومات" data-en="Dashboards"
-                  >Dashboards</span
+              <div class="project-content">
+                <div class="project-tags">
+                  <span
+                    ><span data-ar="Power BI" data-en="Power BI"
+                      >Power BI</span
+                    ></span
+                  >
+                  <span
+                    ><span data-ar="تحليل التسويق" data-en="Marketing Analytics"
+                      >Marketing Analytics</span
+                    ></span
+                  >
+                </div>
+                <h3>
+                  <span
+                    data-ar="تحليل حملات التسويق"
+                    data-en="Marketing Campaigns Analysis"
+                    >Marketing Campaigns Analysis</span
+                  >
+                </h3>
+                <p>
+                  <span
+                    data-ar="لوحة تحكم تفاعلية لتحليل 800 حملة تسويقية عبر 6 قنوات، تكشف أفضل القنوات أداءً وتقترح إعادة توزيع الميزانية للعام القادم."
+                    data-en="An interactive dashboard analyzing 800 marketing campaigns across 6 channels, uncovering top-performing channels and proposing a data-driven budget reallocation for next year."
+                    >An interactive dashboard analyzing 800 marketing campaigns
+                    across 6 channels, uncovering top-performing channels and
+                    proposing a data-driven budget reallocation for next
+                    year.</span
+                  >
+                </p>
+                <button
+                  class="project-link project-details-btn"
+                  data-project="marketing-campaigns"
                 >
-              </h3>
-              <p>
-                <span
-                  data-ar="إنشاء لوحات معلومات واضحة وتفاعلية باستخدام Excel وPower BI."
-                  data-en="Create clear and interactive dashboards using Excel and Power BI."
-                  >Create clear and interactive dashboards using Excel and Power
-                  BI.</span
-                >
-              </p>
-            </div>
-            <div class="service-card reveal">
-              <div class="service-number">
-                <span data-ar="04" data-en="04">04</span>
+                  <span data-ar="عرض المشروع" data-en="View Project"
+                    >View Project</span
+                  >
+                  <i class="fa-solid fa-arrow-right"></i>
+                </button>
               </div>
-              <i class="fa-solid fa-file-lines"></i>
-              <h3>
-                <span data-ar="إعداد التقارير" data-en="Reporting"
-                  >Reporting</span
+            </article>
+            <!-- ================= PROJECT 3 ================= -->
+            <article class="project-card reveal">
+              <div class="project-image project-three">
+                <img alt="HR Analysis Dashboard" src="src/p3 1.png" />
+              </div>
+              <div class="project-content">
+                <div class="project-tags">
+                  <span
+                    ><span data-ar="Power BI" data-en="Power BI"
+                      >Power BI</span
+                    ></span
+                  >
+                  <span
+                    ><span
+                      data-ar="تحليل الموارد البشرية"
+                      data-en="HR Analytics"
+                      >HR Analytics</span
+                    ></span
+                  >
+                </div>
+                <h3>
+                  <span
+                    data-ar="تحليل الموارد البشرية"
+                    data-en="HR Analysis Dashboard"
+                    >HR Analysis Dashboard</span
+                  >
+                </h3>
+                <p>
+                  <span
+                    data-ar="لوحة تحكم تفاعلية من 4 صفحات لتحليل 6,500 موظف، تغطي القوى العاملة ومعدل ترك العمل والرضا الوظيفي والأداء والحضور والتدريب."
+                    data-en="An interactive 4-page dashboard analyzing 6,500 employees, covering workforce, attrition, engagement and satisfaction, performance, attendance, and learning."
+                    >An interactive 4-page dashboard analyzing 6,500 employees,
+                    covering workforce, attrition, engagement and satisfaction,
+                    performance, attendance, and learning.</span
+                  >
+                </p>
+                <button
+                  class="project-link project-details-btn"
+                  data-project="hr-analysis"
                 >
-              </h3>
-              <p>
-                <span
-                  data-ar="تحويل البيانات المعقدة إلى تقارير ومؤشرات أداء بسيطة وسهلة الفهم."
-                  data-en="Turn complex data into simple, understandable reports and KPIs."
-                  >Turn complex data into simple, understandable reports and
-                  KPIs.</span
-                >
-              </p>
-            </div>
+                  <span data-ar="عرض المشروع" data-en="View Project"
+                    >View Project</span
+                  >
+                  <i class="fa-solid fa-arrow-right"></i>
+                </button>
+              </div>
+            </article>
           </div>
         </div>
       </section>
+      <!-- ================= PROJECT DETAILS MODAL ================= -->
+      <div class="project-modal" id="projectModal">
+        <div class="modal-overlay" id="modalOverlay"></div>
+        <div class="modal-content">
+          <button class="modal-close" id="modalClose">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+          <div class="modal-image" id="modalImage">
+            <div class="modal-image-placeholder">
+              <i class="fa-solid fa-chart-column"></i>
+            </div>
+          </div>
+          <div class="modal-body">
+            <div class="project-tags" id="modalTags"></div>
+            <h2 id="modalTitle"></h2>
+            <p class="modal-description" id="modalDescription"></p>
+            <div class="modal-section">
+              <h3>
+                <i class="fa-solid fa-bullseye"></i>
+                <span data-ar="هدف المشروع" data-en="Project Goal"
+                  >Project Goal</span
+                >
+              </h3>
+              <p id="modalGoal"></p>
+            </div>
+            <div class="modal-section">
+              <h3>
+                <i class="fa-solid fa-screwdriver-wrench"></i>
+                <span data-ar="ما قمت به" data-en="What I Did">What I Did</span>
+              </h3>
+              <ul id="modalProcess"></ul>
+            </div>
+            <div class="modal-section">
+              <h3>
+                <i class="fa-solid fa-lightbulb"></i>
+                <span data-ar="أهم الرؤى" data-en="Key Insights"
+                  >Key Insights</span
+                >
+              </h3>
+              <ul id="modalInsights"></ul>
+            </div>
+            <div class="modal-actions">
+              <a
+                class="btn btn-outline"
+                href="#"
+                id="modalGithub"
+                target="_blank"
+              >
+                <i class="fa-brands fa-github"></i>
+                <span data-ar="GitHub" data-en="GitHub">GitHub</span>
+              </a>
+              <a class="btn btn-demo" href="#" id="modalLive" target="_blank">
+                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                <span data-ar="عرض مباشر" data-en="Live Demo">Live Demo</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
       <!-- ================= CONTACT ================= -->
       <section class="contact section" id="contact">
         <div class="container">
@@ -1458,8 +1546,8 @@
             ><span><span data-ar="." data-en=".">.</span></span>
           </a>
           <p>
-            <span data-ar="محلل بيانات مبتدئ" data-en="Junior Data Analyst"
-              >Junior Data Analyst</span
+            <span data-ar="محلل بيانات" data-en="Data Analyst"
+              >Data Analyst</span
             >
           </p>
         </div>
@@ -1503,12 +1591,12 @@
           <i class="fa-solid fa-xmark"></i>
         </button>
         <div class="profile-modal-image">
-          <img alt="Abdullah" src="src/profilePic.jpeg" />
+          <img alt="Abdullah" src="src/profilePic.png" />
         </div>
         <div class="profile-modal-info">
           <span class="profile-modal-label">
-            <span data-ar="محلل بيانات مبتدئ" data-en="JUNIOR DATA ANALYST"
-              >JUNIOR DATA ANALYST</span
+            <span data-ar="محلل بيانات" data-en="DATA ANALYST"
+              >DATA ANALYST</span
             >
           </span>
           <h2>
