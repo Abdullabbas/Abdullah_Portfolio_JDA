@@ -370,6 +370,66 @@ const projectData = {
       ],
     },
   },
+  "bean-cafe": {
+    image: "src/P4.png",
+    tags: ["Tableau", "Sales Analytics"],
+    github: "#",
+    showGithub: false,
+    live:"https://public.tableau.com/app/profile/abdullah.ahmed6826/viz/TablaeuDashboardAssignment/BeanCafeDashboard",
+    showLive: true,
+
+    en: {
+      title: "Bean Cafe Sales Dashboard",
+
+      description:
+        "An interactive Tableau dashboard analyzing Bean Cafe sales across 3 branches, covering total revenue, total orders, the daily sales trend, and category, item, and branch performance.",
+
+      goal: "Give the cafe a single, clear view of how much it sells, what sells best, and which branches drive the most revenue.",
+
+      process: [
+        "Connected and prepared the cafe sales data in Tableau.",
+        "Built KPI sheets for total revenue and total orders.",
+        "Created a line chart showing the daily sales trend from Oct 5 to Oct 11.",
+        "Built a categories summary table with orders, unit price, and revenue for each item.",
+        "Built a branches summary table comparing Alexandria, Cairo, and Giza.",
+        "Combined all sheets into one dashboard.",
+      ],
+
+      insights: [
+        "The cafe generated 8,315 EGP in revenue from 40 orders, an average of about 208 EGP per order.",
+        "Alexandria is the top branch with 3,695 EGP (44% of revenue), followed by Giza (2,660) and Cairo (1,960).",
+        "Latte (1,760) and Cheesecake (1,750) are the top items by revenue, almost tied.",
+        "Drinks bring in the most revenue (4,040 EGP), followed by Desserts (3,190) and Bakery (1,085).",
+        "Sales peaked on Oct 5 (1,735) and then settled between about 970 and 1,280 per day.",
+      ],
+    },
+
+    ar: {
+      title: "لوحة تحكم مبيعات Bean Cafe",
+
+      description:
+        "لوحة تحكم تفاعلية في Tableau لتحليل مبيعات مقهى Bean Cafe عبر 3 فروع، تغطي إجمالي الإيرادات والطلبات والاتجاه اليومي للمبيعات وأداء الفئات والأصناف والفروع.",
+
+      goal: "منح المقهى رؤية واحدة واضحة عن حجم المبيعات، وأكثر الأصناف مبيعًا، والفروع الأعلى إيرادًا.",
+
+      process: [
+        "ربط بيانات مبيعات المقهى وتجهيزها في Tableau.",
+        "بناء مؤشرات أداء لإجمالي الإيرادات وإجمالي الطلبات.",
+        "إنشاء رسم خطي يوضح اتجاه المبيعات اليومي من 5 إلى 11 أكتوبر.",
+        "بناء جدول ملخص الفئات يعرض الطلبات وسعر الوحدة والإيرادات لكل صنف.",
+        "بناء جدول ملخص الفروع للمقارنة بين الإسكندرية والقاهرة والجيزة.",
+        "دمج كل الأوراق في لوحة تحكم واحدة.",
+      ],
+
+      insights: [
+        "حقق المقهى 8,315 جنيه إيرادات من 40 طلبًا، بمتوسط حوالي 208 جنيه للطلب.",
+        "فرع الإسكندرية الأعلى بإيرادات 3,695 جنيه (44% من الإجمالي)، يليه الجيزة (2,660) ثم القاهرة (1,960).",
+        "اللاتيه (1,760) والتشيز كيك (1,750) أعلى الأصناف إيرادًا بفارق بسيط.",
+        "المشروبات الأعلى إيرادًا (4,040 جنيه)، تليها الحلويات (3,190) ثم المخبوزات (1,085).",
+        "بلغت المبيعات ذروتها يوم 5 أكتوبر (1,735) ثم استقرت بين 970 و1,280 تقريبًا يوميًا.",
+      ],
+    },
+  },
 };
 
 function getCurrentLang() {
