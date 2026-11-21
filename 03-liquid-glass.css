@@ -1,0 +1,152 @@
+/* ============================================================
+   TEMPLATE 03 — LIQUID GLASS
+   Frosted translucent panels floating over a slow aurora of
+   blue, violet and cyan. Light mode = pastel daylight aurora.
+   USE: load AFTER ledger-terminal.css
+   NOTE: --amber is the main accent slot (electric blue), --teal is the second (aqua).
+   ============================================================ */
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap");
+
+:root {
+  --bg: #070b1a;
+  --bg-alt: rgba(0, 0, 0, 0.28);
+  --surface: rgba(255, 255, 255, 0.06);
+  --surface-2: rgba(255, 255, 255, 0.09);
+  --surface-hover: rgba(255, 255, 255, 0.13);
+  --border: rgba(255, 255, 255, 0.14);
+  --border-strong: rgba(255, 255, 255, 0.28);
+
+  --text: #f1f4ff;
+  --text-muted: #a9b4d6;
+  --text-faint: #6f7ba3;
+
+  --amber: #7aa7ff;
+  --amber-dim: #5a86e0;
+  --teal: #5ef0d0;
+  --teal-dim: #34c2a6;
+  --amber-soft: rgba(122, 167, 255, 0.16);
+  --teal-soft: rgba(94, 240, 208, 0.16);
+
+  --grid-line: transparent;
+  --shadow-stamp: 0 20px 50px -24px rgba(0, 0, 0, 0.6);
+  --shadow-stamp-accent: 0 20px 50px -24px var(--amber);
+
+  --radius-s: 10px;
+  --radius-m: 18px;
+  --radius-l: 28px;
+  --radius-pill: 999px;
+
+  --font-en: "Outfit", "Inter", sans-serif;
+  --font-mono: "Outfit", "Inter", sans-serif;
+}
+
+body.light-theme {
+  --bg: #eaf0ff;
+  --bg-alt: rgba(255, 255, 255, 0.5);
+  --surface: rgba(255, 255, 255, 0.55);
+  --surface-2: rgba(255, 255, 255, 0.7);
+  --surface-hover: rgba(255, 255, 255, 0.85);
+  --border: rgba(255, 255, 255, 0.9);
+  --border-strong: rgba(15, 21, 48, 0.18);
+
+  --text: #0f1530;
+  --text-muted: #46507a;
+  --text-faint: #8a93b8;
+
+  --amber: #3b5bff;
+  --amber-dim: #2a45d6;
+  --teal: #00a3b8;
+  --teal-dim: #007f90;
+  --amber-soft: rgba(59, 91, 255, 0.12);
+  --teal-soft: rgba(0, 163, 184, 0.12);
+
+  --shadow-stamp: 0 20px 50px -26px rgba(15, 21, 48, 0.25);
+}
+
+/* aurora background, fixed so the glass has something to blur */
+body {
+  background:
+    radial-gradient(60vw 50vh at 12% 8%, rgba(43, 76, 255, 0.38), transparent 70%),
+    radial-gradient(55vw 55vh at 88% 18%, rgba(138, 61, 255, 0.3), transparent 70%),
+    radial-gradient(70vw 50vh at 50% 105%, rgba(0, 212, 255, 0.22), transparent 70%),
+    var(--bg);
+  background-attachment: fixed;
+}
+body.light-theme {
+  background:
+    radial-gradient(60vw 50vh at 12% 8%, rgba(122, 167, 255, 0.55), transparent 70%),
+    radial-gradient(55vw 55vh at 88% 18%, rgba(196, 160, 255, 0.45), transparent 70%),
+    radial-gradient(70vw 50vh at 50% 105%, rgba(120, 232, 255, 0.4), transparent 70%),
+    var(--bg);
+  background-attachment: fixed;
+}
+body::before {
+  background: radial-gradient(
+    520px circle at var(--mx, 50%) var(--my, 10%),
+    rgba(255, 255, 255, 0.08),
+    transparent 62%
+  );
+}
+
+/* the glass itself */
+.skill-card,
+.about-card,
+.education-card,
+.service-card,
+.experience-content,
+.certificate-card,
+.project-card,
+.contact-box,
+.modal-content,
+.profile-modal-content,
+.header {
+  -webkit-backdrop-filter: blur(18px) saturate(150%);
+  backdrop-filter: blur(18px) saturate(150%);
+}
+.skill-card,
+.about-card,
+.education-card,
+.service-card,
+.experience-content,
+.certificate-card,
+.project-card,
+.contact-box,
+.modal-content,
+.profile-modal-content {
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.2),
+    var(--shadow-stamp);
+}
+.project-card:hover {
+  transform: translateY(-8px);
+  border-color: var(--border-strong);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.28),
+    0 30px 60px -26px var(--amber);
+}
+.skill-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--border-strong);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.28),
+    0 20px 40px -24px var(--amber);
+}
+
+.section-label::before,
+.section-label::after {
+  content: none;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--amber), var(--teal));
+  color: #06101f;
+}
+.btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 16px 34px -12px var(--amber);
+}
+.btn-outline {
+  background: var(--surface);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+}
