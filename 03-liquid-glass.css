@@ -66,17 +66,41 @@ body.light-theme {
 /* aurora background, fixed so the glass has something to blur */
 body {
   background:
-    radial-gradient(60vw 50vh at 12% 8%, rgba(43, 76, 255, 0.38), transparent 70%),
-    radial-gradient(55vw 55vh at 88% 18%, rgba(138, 61, 255, 0.3), transparent 70%),
-    radial-gradient(70vw 50vh at 50% 105%, rgba(0, 212, 255, 0.22), transparent 70%),
+    radial-gradient(
+      60vw 50vh at 12% 8%,
+      rgba(43, 76, 255, 0.38),
+      transparent 70%
+    ),
+    radial-gradient(
+      55vw 55vh at 88% 18%,
+      rgba(138, 61, 255, 0.3),
+      transparent 70%
+    ),
+    radial-gradient(
+      70vw 50vh at 50% 105%,
+      rgba(0, 212, 255, 0.22),
+      transparent 70%
+    ),
     var(--bg);
   background-attachment: fixed;
 }
 body.light-theme {
   background:
-    radial-gradient(60vw 50vh at 12% 8%, rgba(122, 167, 255, 0.55), transparent 70%),
-    radial-gradient(55vw 55vh at 88% 18%, rgba(196, 160, 255, 0.45), transparent 70%),
-    radial-gradient(70vw 50vh at 50% 105%, rgba(120, 232, 255, 0.4), transparent 70%),
+    radial-gradient(
+      60vw 50vh at 12% 8%,
+      rgba(122, 167, 255, 0.55),
+      transparent 70%
+    ),
+    radial-gradient(
+      55vw 55vh at 88% 18%,
+      rgba(196, 160, 255, 0.45),
+      transparent 70%
+    ),
+    radial-gradient(
+      70vw 50vh at 50% 105%,
+      rgba(120, 232, 255, 0.4),
+      transparent 70%
+    ),
     var(--bg);
   background-attachment: fixed;
 }
@@ -150,7 +174,6 @@ body::before {
   -webkit-backdrop-filter: blur(12px);
   backdrop-filter: blur(12px);
 }
-
 
 /* ============================================================
    HORIZONTAL SCROLLERS (experience / certifications / projects)
@@ -328,76 +351,6 @@ html[dir="rtl"] .hscroll-btn i {
 }
 
 /* ============================================================
-   SKILLS — compact mobile layout (2 columns, icon beside name)
-   ============================================================ */
-@media (max-width: 640px) {
-  .skills-grid {
-    grid-template-columns: repeat(2, 1fr) !important;
-    gap: 12px;
-  }
-  .skill-card {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    padding: 14px 14px;
-    text-align: start;
-    border-radius: var(--radius-m);
-  }
-  .skill-icon {
-    flex: 0 0 auto;
-    width: 40px;
-    height: 40px;
-    font-size: 1.05rem;
-    margin: 0;
-    border-radius: 12px;
-  }
-  .skill-card h3 {
-    font-size: 0.9rem;
-    margin: 0;
-    min-width: 0;
-    overflow-wrap: anywhere;
-  }
-  /* no sticky hover lift on touch screens */
-  .skill-card:hover {
-    transform: none;
-  }
-  .skill-card:hover .skill-icon {
-    transform: none;
-  }
-}
-@media (max-width: 380px) {
-  .skills-grid {
-    gap: 10px;
-  }
-  .skill-card {
-    padding: 12px 10px;
-    gap: 10px;
-  }
-  .skill-icon {
-    width: 36px;
-    height: 36px;
-  }
-  .skill-card h3 {
-    font-size: 0.84rem;
-  }
-}
-
-/* ============================================================
-   SKILLS — balanced desktop/tablet layout (8 cards = 4 x 2)
-   ============================================================ */
-@media (min-width: 641px) {
-  .skills-grid {
-    grid-template-columns: repeat(4, 1fr) !important;
-    gap: 20px;
-    max-width: 980px;
-    margin-inline: auto;
-  }
-  .skill-card {
-    padding: 30px 18px;
-  }
-}
-
-/* ============================================================
    PROFILE PHOTO — keep the head in frame inside the round crops
    (object-fit: cover centers the photo and cuts the top; anchor it
    to the top instead. Adjust the 2nd value: 0% = top, 100% = bottom)
@@ -525,5 +478,785 @@ html[dir="rtl"] .hscroll-btn i {
   }
   .about-cards {
     gap: 20px;
+  }
+}
+
+/* ============================================================
+   HERO VISUAL — portrait + rotating project dashboard
+   ============================================================ */
+.hv {
+  position: relative;
+  width: 100%;
+  height: 520px;
+}
+
+/* dashboard card */
+.hv-dash {
+  position: absolute;
+  top: 0;
+  inset-inline-end: 0;
+  width: 82%;
+  padding: 20px 20px 16px;
+  border-radius: var(--radius-l);
+  background: var(--surface-2);
+  border: 1px solid var(--border-strong);
+  -webkit-backdrop-filter: blur(18px) saturate(150%);
+  backdrop-filter: blur(18px) saturate(150%);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.2),
+    var(--shadow-stamp);
+  transform: rotate(3deg);
+  transform-origin: top right;
+  z-index: 1;
+  cursor: pointer;
+  outline: none;
+  transition:
+    transform 0.45s var(--ease-spring),
+    border-color 0.3s var(--ease);
+}
+.hv-dash:hover,
+.hv-dash:focus-visible {
+  border-color: var(--amber);
+  transform: rotate(1.5deg) translateY(-4px);
+}
+html[dir="rtl"] .hv-dash {
+  transform: rotate(-3deg);
+  transform-origin: top left;
+}
+html[dir="rtl"] .hv-dash:hover,
+html[dir="rtl"] .hv-dash:focus-visible {
+  transform: rotate(-1.5deg) translateY(-4px);
+}
+.hv-body {
+  transition:
+    opacity 0.26s var(--ease),
+    transform 0.26s var(--ease);
+}
+.hv-body.is-out {
+  opacity: 0;
+  transform: translateY(8px);
+}
+.hv-dash-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 14px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text);
+}
+.hv-title {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.hv-tag {
+  flex: 0 0 auto;
+  font-size: 0.68rem;
+  font-weight: 600;
+  padding: 3px 10px;
+  border-radius: var(--radius-pill);
+  color: #06101f;
+  background: linear-gradient(135deg, var(--amber), var(--teal));
+}
+.hv-kpis {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+.hv-kpi {
+  min-width: 0;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 10px 12px;
+}
+.hv-kpi b {
+  display: block;
+  font-size: 1.25rem;
+  line-height: 1.2;
+  color: var(--amber);
+  white-space: nowrap;
+}
+.hv-kpi span {
+  display: block;
+  font-size: 0.66rem;
+  color: var(--text-muted);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.hv-cap {
+  margin: 12px 0 6px;
+  font-size: 0.7rem;
+  letter-spacing: 0.02em;
+  color: var(--text-muted);
+}
+
+/* chart area keeps a fixed height so the card never jumps */
+.hv-chart {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  height: 150px;
+}
+.hv-line {
+  flex: 0 0 62px;
+  display: block;
+  width: 100%;
+  height: 62px;
+}
+.hv-chart.no-line .hv-line {
+  display: none;
+}
+.hv-line path {
+  fill: none;
+  stroke: var(--teal);
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation: hv-draw 1.4s var(--ease) 0.15s forwards;
+}
+@keyframes hv-draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+.hv-bars {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  gap: 8px;
+}
+.hv-bar {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.hv-col {
+  position: relative;
+  flex: 1;
+  min-height: 0;
+}
+.hv-col i {
+  position: absolute;
+  inset-inline: 0;
+  bottom: 0;
+  height: var(--h);
+  border-radius: 6px 6px 2px 2px;
+  background: linear-gradient(var(--amber), var(--teal));
+  transform-origin: bottom;
+  animation: hv-grow 0.9s var(--ease-snap) both;
+  animation-delay: calc(var(--n) * 0.07s);
+}
+.hv-col em {
+  position: absolute;
+  inset-inline: -6px;
+  bottom: calc(var(--h) + 3px);
+  text-align: center;
+  font-style: normal;
+  font-size: 0.58rem;
+  font-weight: 600;
+  color: var(--text);
+  white-space: nowrap;
+  animation: hv-fade 0.5s ease 0.5s both;
+}
+.hv-bar small {
+  font-size: 0.58rem;
+  text-align: center;
+  color: var(--text-muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+@keyframes hv-grow {
+  from {
+    transform: scaleY(0);
+  }
+  to {
+    transform: scaleY(1);
+  }
+}
+@keyframes hv-fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* progress dots */
+.hv-dots {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin-top: 14px;
+}
+.hv-dots button {
+  position: relative;
+  width: 8px;
+  height: 8px;
+  padding: 0;
+  border: 0;
+  border-radius: var(--radius-pill);
+  background: var(--border-strong);
+  overflow: hidden;
+  cursor: pointer;
+  transition: width 0.35s var(--ease);
+}
+.hv-dots button.active {
+  width: 30px;
+}
+.hv-dots button.active::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, var(--amber), var(--teal));
+  transform-origin: left;
+  animation: hv-fill var(--hv-int, 6s) linear forwards;
+}
+html[dir="rtl"] .hv-dots button.active::after {
+  transform-origin: right;
+}
+.hv-dots.paused button.active::after {
+  animation-play-state: paused;
+}
+@keyframes hv-fill {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+/* portrait in front */
+.hv-photo {
+  position: absolute;
+  bottom: 0;
+  inset-inline-start: 2%;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  z-index: 2;
+  box-shadow:
+    0 0 0 6px var(--surface-2),
+    0 0 60px -6px var(--amber);
+}
+.hv-photo::before {
+  content: "";
+  position: absolute;
+  inset: -12px;
+  border-radius: 50%;
+  background: conic-gradient(
+    from 0deg,
+    var(--amber),
+    var(--teal),
+    #b48cff,
+    var(--amber)
+  );
+  -webkit-mask: radial-gradient(
+    farthest-side,
+    transparent calc(100% - 3px),
+    #000 calc(100% - 2px)
+  );
+  mask: radial-gradient(
+    farthest-side,
+    transparent calc(100% - 3px),
+    #000 calc(100% - 2px)
+  );
+  animation: hv-spin 8s linear infinite;
+}
+@keyframes hv-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+.hv-photo img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: 50% 0%;
+  background: var(--surface-2);
+}
+
+/* floating chip */
+.hv-chip {
+  position: absolute;
+  bottom: 9%;
+  inset-inline-end: 2%;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  border-radius: var(--radius-m);
+  background: var(--surface-2);
+  border: 1px solid var(--border-strong);
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+  box-shadow: var(--shadow-stamp);
+  animation: hv-bob 5s ease-in-out infinite;
+}
+.hv-chip div {
+  display: flex;
+  flex-direction: column;
+}
+.hv-chip strong {
+  font-size: 0.85rem;
+  color: var(--text);
+}
+.hv-chip div span {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+}
+.hv-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--teal);
+  box-shadow: 0 0 0 4px var(--teal-soft);
+}
+@keyframes hv-bob {
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@media (max-width: 480px) {
+  .hv {
+    height: 480px;
+  }
+  .hv-dash {
+    width: 90%;
+    padding: 16px 16px 14px;
+  }
+  .hv-kpi {
+    padding: 8px 9px;
+  }
+  .hv-kpi b {
+    font-size: 1.05rem;
+  }
+  .hv-chart {
+    height: 132px;
+  }
+  .hv-line {
+    flex-basis: 52px;
+    height: 52px;
+  }
+  .hv-photo {
+    width: 150px;
+    height: 150px;
+  }
+  .hv-chip {
+    padding: 10px 12px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hv-line path,
+  .hv-col i,
+  .hv-col em,
+  .hv-photo::before,
+  .hv-chip,
+  .hv-dots button.active::after {
+    animation: none;
+  }
+  .hv-line path {
+    stroke-dashoffset: 0;
+  }
+  .hv-dots button.active::after {
+    transform: scaleX(1);
+  }
+  .hv-body {
+    transition: none;
+  }
+}
+
+/* ============================================================
+   FIXES — hero width, hero top spacing, equal certificate cards
+   ============================================================ */
+
+/* The hero visual only contains absolutely positioned children, so with
+   margin-inline:auto it collapsed to zero width on tablets/phones. */
+.hero-visual {
+  width: 100%;
+}
+
+/* less empty space between the navbar and the hero */
+.hero.section {
+  padding-block: 56px 90px;
+}
+@media (max-width: 960px) {
+  .hero.section {
+    padding-block: 28px 64px;
+  }
+}
+@media (max-width: 480px) {
+  .hero.section {
+    padding-block: 18px 48px;
+  }
+  .availability-badge {
+    margin-bottom: 20px;
+  }
+}
+@media (max-width: 380px) {
+  .hv-kpis {
+    gap: 8px;
+  }
+  .hv-kpi b {
+    font-size: 0.98rem;
+  }
+  .hv-dash {
+    width: 94%;
+  }
+}
+
+/* certificate cards: identical size.
+   (height:100% stopped the flex row from stretching them equally) */
+.hscroll-track.certifications-grid > .certificate-card {
+  height: auto;
+  align-self: stretch;
+  flex: 0 0 min(380px, 86%);
+}
+.hscroll-track.certifications-grid .certificate-card .certificate-content {
+  flex: 1;
+}
+
+/* ============================================================
+   SKILLS — grouped tools & technologies (liquid glass)
+   ============================================================ */
+.skill-groups {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+  align-items: stretch;
+}
+.skill-group {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  padding: 26px;
+  border-radius: var(--radius-l);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  -webkit-backdrop-filter: blur(18px) saturate(150%);
+  backdrop-filter: blur(18px) saturate(150%);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.2),
+    var(--shadow-stamp);
+  overflow: hidden;
+  transition:
+    transform 0.4s var(--ease-spring),
+    border-color 0.3s var(--ease),
+    box-shadow 0.35s var(--ease);
+}
+.skill-group::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  inset-inline: 14%;
+  height: 2px;
+  border-radius: var(--radius-pill);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--amber),
+    var(--teal),
+    transparent
+  );
+  opacity: 0.75;
+}
+.skill-group::after {
+  content: "";
+  position: absolute;
+  inset-inline-end: -60px;
+  top: -60px;
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--amber-soft), transparent 70%);
+  pointer-events: none;
+}
+.skill-group:hover {
+  transform: translateY(-6px);
+  border-color: var(--border-strong);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.28),
+    0 26px 50px -26px var(--amber);
+}
+
+.skill-group-head {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.skill-group-icon {
+  flex: 0 0 auto;
+  width: 48px;
+  height: 48px;
+  display: grid;
+  place-items: center;
+  border-radius: 14px;
+  font-size: 1.15rem;
+  color: var(--amber);
+  background: var(--amber-soft);
+  border: 1px solid var(--border);
+}
+.skill-group-title {
+  min-width: 0;
+}
+.skill-group-title h3 {
+  font-size: 1.05rem;
+  line-height: 1.25;
+  margin: 0;
+}
+.skill-group-title small {
+  display: block;
+  margin-top: 3px;
+  font-size: 0.74rem;
+  color: var(--text-muted);
+}
+.skill-group-num {
+  margin-inline-start: auto;
+  font-size: 1.7rem;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--text-faint);
+  opacity: 0.55;
+}
+
+.skill-list {
+  position: relative;
+  z-index: 1;
+  flex: 1;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 12px;
+  grid-auto-rows: minmax(58px, 1fr);
+}
+.skill-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 10px 16px;
+  border-radius: var(--radius-m);
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  transition:
+    transform 0.3s var(--ease-spring),
+    border-color 0.25s var(--ease),
+    box-shadow 0.3s var(--ease);
+}
+.skill-item:hover {
+  transform: translateX(5px);
+  border-color: var(--icon-c, var(--amber));
+  box-shadow: 0 14px 28px -18px var(--icon-c, var(--amber));
+}
+html[dir="rtl"] .skill-item:hover {
+  transform: translateX(-5px);
+}
+.skill-item .skill-icon {
+  flex: 0 0 auto;
+  width: 40px;
+  height: 40px;
+  margin: 0;
+  border-radius: 12px;
+  font-size: 1.05rem;
+}
+.skill-item:hover .skill-icon {
+  transform: scale(1.08);
+}
+.skill-name {
+  min-width: 0;
+  font-weight: 600;
+  font-size: 0.98rem;
+  overflow-wrap: anywhere;
+}
+
+/* tablet: panels stack, tools sit in a row inside each panel */
+@media (max-width: 1024px) {
+  .skill-groups {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+  .skill-list {
+    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+    grid-auto-rows: auto;
+  }
+}
+/* phone: compact two-column tools */
+@media (max-width: 640px) {
+  .skill-group {
+    padding: 20px 16px;
+    gap: 16px;
+  }
+  .skill-group-icon {
+    width: 42px;
+    height: 42px;
+    font-size: 1rem;
+  }
+  .skill-group-num {
+    font-size: 1.35rem;
+  }
+  .skill-list {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+  .skill-item {
+    gap: 10px;
+    padding: 10px 12px;
+  }
+  .skill-item .skill-icon {
+    width: 36px;
+    height: 36px;
+    font-size: 0.95rem;
+  }
+  .skill-name {
+    font-size: 0.9rem;
+  }
+  .skill-item:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+  }
+  .skill-item:hover,
+  html[dir="rtl"] .skill-item:hover,
+  .skill-group:hover {
+    transform: none;
+  }
+}
+
+/* ============================================================
+   TRAINING CARDS — fixed header, centered content, tags at the bottom
+   ============================================================ */
+.experience-content {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-self: stretch;
+}
+/* header always starts at the same place and takes the same room */
+.experience-top {
+  flex: 0 0 auto;
+  margin-bottom: 0;
+  min-height: 92px;
+  align-content: flex-start;
+}
+/* the two auto margins share the leftover space equally, so the
+   description + bullet list sit centered between header and tags */
+.experience-description {
+  margin: auto 0 0;
+}
+.experience-list {
+  margin: 0;
+}
+/* tags are pinned to the bottom of every card */
+.experience-tools {
+  margin-top: auto;
+  padding-top: 4px;
+}
+@media (max-width: 640px) {
+  .experience-top {
+    min-height: 0;
+  }
+}
+
+/* ============================================================
+   PROJECT IMAGES — show every dashboard in full (no cropping)
+   The old 16:10 frame + object-fit: cover cut the sides off wide
+   screenshots (Superstore, Bean Cafe). The frame is now 2:1, close
+   to the screenshots, and the image is fitted inside it.
+   ============================================================ */
+.project-image {
+  aspect-ratio: 2 / 1;
+  display: grid;
+  place-items: center;
+  background:
+    radial-gradient(120% 120% at 20% 0%, var(--amber-soft), transparent 60%),
+    var(--surface-2);
+}
+.project-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.project-card:hover .project-image img {
+  transform: scale(1.04);
+}
+
+/* ============================================================
+   PROJECT POPUP — show the whole screenshot (no cropping)
+   Single-image projects (Superstore, Bean Cafe) were forced into a
+   16:9 frame with object-fit: cover. They now keep their own shape,
+   like the multi-image galleries already did.
+   ============================================================ */
+.modal-image {
+  aspect-ratio: auto;
+}
+.modal-image > img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+.modal-image-placeholder {
+  min-height: 220px;
+}
+
+/* ============================================================
+   PROJECT CARDS — same layout as the training cards:
+   title fixed at the top, description centered, tags + button at the bottom
+   ============================================================ */
+.project-card {
+  display: flex;
+  flex-direction: column;
+  align-self: stretch;
+}
+.project-image {
+  flex: 0 0 auto;
+}
+.project-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+/* title: same spot and same room in every card */
+.project-content h3 {
+  order: 2;
+  margin: 0;
+  line-height: 1.3;
+  min-height: 1.8em;
+}
+/* description: the two auto margins (here and on the tags) share the
+   leftover space equally, so it sits centered between title and tags */
+.project-content > p {
+  order: 3;
+  /* margin: auto 0 0; */
+}
+/* tags: pinned toward the bottom, above the button */
+.project-tags {
+  order: 1;
+  /* margin: auto 0 0; */
+}
+.project-content .project-details-btn {
+  order: 4;
+  align-self: flex-start;
+  margin-top: 2px;
+}
+@media (max-width: 640px) {
+  .project-content {
+    padding: 20px;
   }
 }

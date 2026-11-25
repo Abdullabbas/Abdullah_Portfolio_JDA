@@ -952,3 +952,262 @@ initHScroll(".projects-grid", "Projects");
 initHScroll(".about-cards", "About highlights", true);
 initHScroll(".services-grid", "Services", true);
 
+/* =========================
+   HERO PROJECT SHOWCASE
+   The dashboard card in the hero cycles through every project,
+   in the same order as the Projects section. All numbers come
+   from the dashboard screenshots.
+========================= */
+(function () {
+  const root = document.getElementById("hvDash");
+  if (!root || typeof projectData === "undefined") return;
+
+  const INTERVAL = 6000; // milliseconds each project stays on screen
+  const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  const T = (en, ar) => ({ en, ar });
+  const bar = (v, show, en, ar) => ({ v, show, label: T(en, ar || en) });
+
+  // same order as the project cards in index3.html
+  const slides = [
+    {
+      id: "superstore",
+      chip: T("Sales Analysis", "تحليل المبيعات"),
+      kpis: [
+        { to: 2.3, dec: 2, pre: "$", suf: "M", label: T("Total Sales", "إجمالي المبيعات") },
+        { to: 286, pre: "$", suf: "K", label: T("Total Profit", "إجمالي الربح") },
+        { text: T("West", "الغرب"), label: T("Top Region", "أفضل منطقة") },
+      ],
+      cap: T("Sales by region", "المبيعات حسب المنطقة"),
+      line: null,
+      bars: [
+        bar(501.2, "$501K", "Central", "الوسط"),
+        bar(678.8, "$679K", "East", "الشرق"),
+        bar(391.7, "$392K", "South", "الجنوب"),
+        bar(725.5, "$725K", "West", "الغرب"),
+      ],
+    },
+    {
+      id: "marketing-campaigns",
+      chip: T("Marketing Analytics", "تحليل التسويق"),
+      kpis: [
+        { to: 891.28, dec: 2, suf: "M", label: T("Revenue", "الإيرادات") },
+        { to: 39.67, dec: 2, suf: "x", label: T("ROAS", "العائد على الإنفاق") },
+        { to: 856, suf: "K", label: T("Conversions", "التحويلات") },
+      ],
+      cap: T("ROAS by channel", "العائد على الإنفاق حسب القناة"),
+      line: null,
+      bars: [
+        bar(150.8, "150.8x", "Email"),
+        bar(34.06, "34.1x", "Insta"),
+        bar(33.57, "33.6x", "Google"),
+        bar(33.08, "33.1x", "TikTok"),
+        bar(31.24, "31.2x", "FB"),
+        bar(23.51, "23.5x", "LinkedIn"),
+      ],
+    },
+    {
+      id: "hr-analysis",
+      chip: T("HR Analytics", "تحليلات الموارد البشرية"),
+      kpis: [
+        { to: 6500, label: T("Employees", "الموظفون") },
+        { to: 11.63, dec: 2, suf: "%", label: T("Attrition", "معدل ترك العمل") },
+        { to: 96.06, dec: 2, suf: "%", label: T("Attendance", "نسبة الحضور") },
+      ],
+      cap: T("Hiring trend 2015–2024 · Headcount by department", "اتجاه التوظيف 2015–2024 · عدد الموظفين حسب القسم"),
+      line: [577, 577, 544, 560, 512, 605, 616, 597, 557, 599],
+      bars: [
+        bar(1345, "1,345", "Engineering", "الهندسة"),
+        bar(1020, "1,020", "Sales", "المبيعات"),
+        bar(786, "786", "Support", "الدعم"),
+        bar(644, "644", "Ops", "العمليات"),
+        bar(538, "538", "Product", "المنتج"),
+      ],
+    },
+    {
+      id: "bean-cafe",
+      chip: T("Sales Analytics", "تحليل المبيعات"),
+      kpis: [
+        { to: 8315, label: T("Revenue (EGP)", "الإيرادات (ج.م)") },
+        { to: 40, label: T("Orders", "الطلبات") },
+        { to: 3, label: T("Branches", "الفروع") },
+      ],
+      cap: T("Daily sales Oct 5–11 · Revenue by branch", "المبيعات اليومية 5–11 أكتوبر · الإيرادات حسب الفرع"),
+      line: [1735, 1015, 1125, 970, 1280, 1190, 1000],
+      bars: [
+        bar(3695, "3,695", "Alexandria", "الإسكندرية"),
+        bar(2660, "2,660", "Giza", "الجيزة"),
+        bar(1960, "1,960", "Cairo", "القاهرة"),
+      ],
+    },
+  ];
+
+  const $ = (id) => document.getElementById(id);
+  const body = $("hvBody"), dotsBox = $("hvDots");
+  const lang = () => (window.currentLang === "ar" ? "ar" : "en");
+  let idx = 0, timer = null, swapTimer = null, paused = false, runId = 0;
+
+  root.style.setProperty("--hv-int", INTERVAL + "ms");
+
+  // dots
+  const dots = slides.map((s, i) => {
+    const b = document.createElement("button");
+    b.type = "button";
+    b.addEventListener("click", (e) => {
+      e.stopPropagation();
+      go(i);
+    });
+    dotsBox.appendChild(b);
+    return b;
+  });
+
+  const fmt = (k, v) =>
+    (k.pre || "") +
+    (k.dec ? v.toFixed(k.dec) : Math.round(v).toLocaleString("en-US")) +
+    (k.suf || "");
+
+  function linePath(a) {
+    const w = 300, h = 80, pad = 8;
+    const min = Math.min(...a), max = Math.max(...a);
+    const pts = a.map((v, i) => [
+      (w * i) / (a.length - 1),
+      h - pad - ((v - min) / (max - min || 1)) * (h - 2 * pad),
+    ]);
+    let d = "M" + pts[0][0] + " " + pts[0][1];
+    for (let i = 1; i < pts.length; i++) {
+      const cx = (pts[i - 1][0] + pts[i][0]) / 2;
+      d += " C" + cx + " " + pts[i - 1][1] + " " + cx + " " + pts[i][1] + " " + pts[i][0] + " " + pts[i][1];
+    }
+    return d;
+  }
+
+  function draw(i) {
+    const lg = lang();
+    const s = slides[i];
+    const p = projectData[s.id] || {};
+    const pl = p[lg] || p.en || {};
+    const tags = p.tags || (p.en && p.en.tags) || [];
+    const my = ++runId;
+
+    $("hvTitle").textContent = pl.title || s.id;
+    $("hvTag").textContent = tags[0] || "";
+    $("hvCap").textContent = s.cap[lg];
+    $("hvChipMain").textContent = s.chip[lg];
+    $("hvChipSub").textContent =
+      (lg === "ar" ? "مشروع " : "Project ") + (i + 1) + " / " + slides.length;
+
+    // KPIs (with count-up)
+    const kbox = $("hvKpis");
+    kbox.innerHTML = "";
+    s.kpis.forEach((k) => {
+      const d = document.createElement("div");
+      d.className = "hv-kpi";
+      const b = document.createElement("b");
+      const l = document.createElement("span");
+      l.textContent = k.label[lg];
+      d.append(b, l);
+      kbox.appendChild(d);
+      if (k.text) {
+        b.textContent = k.text[lg];
+      } else if (reduce) {
+        b.textContent = fmt(k, k.to);
+      } else {
+        const t0 = performance.now();
+        (function tick(now) {
+          if (my !== runId) return;
+          const q = Math.min((now - t0) / 1100, 1);
+          b.textContent = fmt(k, k.to * (1 - Math.pow(1 - q, 3)));
+          if (q < 1) requestAnimationFrame(tick);
+        })(t0);
+      }
+    });
+
+    // line chart (only projects that have a real trend)
+    const chart = $("hvChart");
+    chart.classList.toggle("no-line", !s.line);
+    const path = $("hvPath");
+    const clone = path.cloneNode();
+    if (s.line) clone.setAttribute("d", linePath(s.line));
+    path.replaceWith(clone); // fresh node restarts the draw animation
+    clone.id = "hvPath";
+
+    // bars
+    const max = Math.max(...s.bars.map((b) => b.v));
+    $("hvBars").innerHTML = s.bars
+      .map(
+        (b, n) =>
+          '<div class="hv-bar"><div class="hv-col" style="--h:' +
+          ((b.v / max) * 86).toFixed(1) +
+          "%;--n:" + n + '"><em>' + b.show + "</em><i></i></div><small>" +
+          b.label[lg] + "</small></div>",
+      )
+      .join("");
+
+    // dots (re-trigger the progress fill)
+    dots.forEach((d) => {
+      d.classList.remove("active");
+      d.setAttribute("aria-label", (projectData[slides[dots.indexOf(d)].id][lg] || {}).title || "");
+    });
+    void dotsBox.offsetWidth;
+    dots[i].classList.add("active");
+  }
+
+  function arm() {
+    clearTimeout(timer);
+    if (paused) return;
+    timer = setTimeout(() => go((idx + 1) % slides.length), INTERVAL);
+  }
+
+  function go(i) {
+    clearTimeout(swapTimer);
+    idx = i;
+    if (reduce) {
+      draw(i);
+    } else {
+      body.classList.add("is-out");
+      swapTimer = setTimeout(() => {
+        draw(i);
+        body.classList.remove("is-out");
+      }, 260);
+    }
+    arm();
+  }
+
+  function setPaused(v) {
+    paused = v;
+    dotsBox.classList.toggle("paused", v);
+    if (v) clearTimeout(timer);
+    else go(idx); // restart the full cycle for the current project
+  }
+
+  // pause while the pointer or keyboard focus is on the card, or the tab is hidden
+  root.addEventListener("mouseenter", () => setPaused(true));
+  root.addEventListener("mouseleave", () => setPaused(false));
+  root.addEventListener("focusin", () => setPaused(true));
+  root.addEventListener("focusout", () => setPaused(false));
+  document.addEventListener("visibilitychange", () =>
+    setPaused(document.hidden),
+  );
+
+  // click the card to open that project's details
+  function openProject() {
+    const btn = document.querySelector(
+      '.project-details-btn[data-project="' + slides[idx].id + '"]',
+    );
+    if (btn) btn.click();
+  }
+  root.addEventListener("click", (e) => {
+    if (!e.target.closest(".hv-dots")) openProject();
+  });
+  root.addEventListener("keydown", (e) => {
+    if (e.target === root && (e.key === "Enter" || e.key === " ")) {
+      e.preventDefault();
+      openProject();
+    }
+  });
+
+  document.addEventListener("languagechange", () => draw(idx));
+
+  draw(0);
+  arm();
+})();

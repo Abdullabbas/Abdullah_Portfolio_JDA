@@ -236,148 +236,48 @@
             </div>
           </div>
           <div class="hero-visual reveal">
-            <div class="dashboard-card">
-              <div class="card-top">
-                <div>
-                  <span class="small-label"
-                    ><span data-ar="تحليل البيانات" data-en="DATA ANALYTICS"
-                      >DATA ANALYTICS</span
-                    ></span
-                  >
-                  <h3>
-                    <span data-ar="طريقة عملي" data-en="How I Work"
-                      >How I Work</span
+            <div class="hv">
+              <!-- dashboard card: rotates through all projects (see script3.js) -->
+              <div
+                class="hv-dash"
+                id="hvDash"
+                role="button"
+                tabindex="0"
+                aria-label="Open project details"
+              >
+                <div class="hv-body" id="hvBody">
+                  <div class="hv-dash-top">
+                    <span class="hv-title" id="hvTitle"></span>
+                    <span class="hv-tag" id="hvTag"></span>
+                  </div>
+                  <div class="hv-kpis" id="hvKpis"></div>
+                  <div class="hv-cap" id="hvCap"></div>
+                  <div class="hv-chart" id="hvChart">
+                    <svg
+                      class="hv-line"
+                      id="hvLine"
+                      viewBox="0 0 300 80"
+                      preserveAspectRatio="none"
+                      aria-hidden="true"
                     >
-                  </h3>
+                      <path id="hvPath" pathLength="1" d="" />
+                    </svg>
+                    <div class="hv-bars" id="hvBars" aria-hidden="true"></div>
+                  </div>
                 </div>
-                <div class="card-icon">
-                  <i class="fa-solid fa-terminal"></i>
-                </div>
+                <div class="hv-dots" id="hvDots"></div>
               </div>
-              <!-- workflow pipeline -->
-              <span class="hero-label"
-                ><b>&gt;</b>
-                <span data-ar="تشغيل خط المعالجة" data-en="run pipeline"
-                  >run pipeline</span
-                ></span
-              >
-              <div class="pipeline">
-                <span class="pipe-packet"></span>
-                <div class="pipe-step" style="--i: 0">
-                  <span class="pipe-node"
-                    ><i class="fa-solid fa-database"></i
-                  ></span>
-                  <strong class="pipe-name"
-                    ><span data-ar="البيانات الخام" data-en="Raw Data"
-                      >Raw Data</span
-                    ></strong
-                  >
-                  <span class="pipe-tool">Excel</span>
-                  <span class="pipe-tool">Google Sheets</span>
-                </div>
-                <div class="pipe-step" style="--i: 1">
-                  <span class="pipe-node"
-                    ><i class="fa-solid fa-broom"></i
-                  ></span>
-                  <strong class="pipe-name"
-                    ><span data-ar="التنظيف" data-en="Clean"
-                      >Clean</span
-                    ></strong
-                  >
-                  <span class="pipe-tool">Power Query</span>
-                  <span class="pipe-tool">Python</span>
-                </div>
-                <div class="pipe-step" style="--i: 2">
-                  <span class="pipe-node"
-                    ><i class="fa-solid fa-diagram-project"></i
-                  ></span>
-                  <strong class="pipe-name"
-                    ><span data-ar="النمذجة" data-en="Model"
-                      >Model</span
-                    ></strong
-                  >
-                  <span class="pipe-tool">Power BI</span>
-                  <span class="pipe-tool">Power Pivot</span>
-                </div>
-                <div class="pipe-step" style="--i: 3">
-                  <span class="pipe-node"
-                    ><i class="fa-solid fa-chart-column"></i
-                  ></span>
-                  <strong class="pipe-name"
-                    ><span data-ar="لوحة المعلومات" data-en="Dashboard"
-                      >Dashboard</span
-                    ></strong
-                  >
-                  <span class="pipe-tool">Excel</span>
-                  <span class="pipe-tool">Power BI</span>
-                  <span class="pipe-tool">Tableau</span>
-                </div>
+              <!-- portrait -->
+              <div class="hv-photo">
+                <img alt="Abdullah" src="src/profilePic.png" />
               </div>
-
-              <!-- live terminal log, synced with the pipeline -->
-              <span class="hero-label"
-                ><b>&gt;</b>
-                <span data-ar="المخرجات" data-en="output">output</span></span
-              >
-              <div class="term-log" aria-hidden="true">
-                <span
-                  class="term-line t1"
-                  data-ar="✓ تحميل 800 حملة"
-                  data-en="✓ loaded 800 campaigns"
-                  >✓ loaded 800 campaigns</span
-                >
-                <span
-                  class="term-line t2"
-                  data-ar="✓ التنظيف بـ Power Query"
-                  data-en="✓ cleaned with Power Query"
-                  >✓ cleaned with Power Query</span
-                >
-                <span
-                  class="term-line t3"
-                  data-ar="✓ بناء 20 مقاييس DAX"
-                  data-en="✓ 20 DAX measures built"
-                  >✓ 20 DAX measures built</span
-                >
-                <span
-                  class="term-line t4"
-                  data-ar="✓ تسليم لوحة من 7 صفحات"
-                  data-en="✓ shipped 7-page dashboard"
-                  >✓ shipped 7-page dashboard</span
-                >
-                <span
-                  class="term-line t5"
-                  data-ar="← النتيجة: الإيميل يتفوق على الإعلانات"
-                  data-en="→ insight: Email beats paid ads"
-                  >→ insight: Email beats paid ads</span
-                >
-              </div>
-            </div>
-            <div class="floating-card floating-card-one">
-              <i class="fa-solid fa-database"></i>
-              <div>
-                <strong
-                  ><span data-ar="البيانات" data-en="Data">Data</span></strong
-                >
-                <span
-                  ><span data-ar="الرؤى" data-en="Insights"
-                    >Insights</span
-                  ></span
-                >
-              </div>
-            </div>
-            <div class="floating-card floating-card-two">
-              <i class="fa-solid fa-chart-pie"></i>
-              <div>
-                <strong
-                  ><span data-ar="Power BI" data-en="Power BI"
-                    >Power BI</span
-                  ></strong
-                >
-                <span
-                  ><span data-ar="لوحة المعلومات" data-en="Dashboard"
-                    >Dashboard</span
-                  ></span
-                >
+              <!-- tool chip -->
+              <div class="hv-chip">
+                <span class="hv-dot"></span>
+                <div>
+                  <strong id="hvChipMain"></strong>
+                  <span id="hvChipSub"></span>
+                </div>
               </div>
             </div>
           </div>
@@ -620,81 +520,177 @@
         <div class="container">
           <div class="section-heading center reveal">
             <span class="section-label"
-              ><span data-ar="مهاراتي" data-en="MY SKILLS"
-                >MY SKILLS</span
+              ><span
+                data-ar="الأدوات والتقنيات"
+                data-en="TOOLS &amp; TECHNOLOGIES"
+                >TOOLS &amp; TECHNOLOGIES</span
               ></span
             >
             <h2>
-              <span data-ar="الأدوات التي أستخدمها لـ" data-en="Tools I use to"
-                >Tools I use to</span
+              <span data-ar="الأدوات وراء" data-en="The tools behind"
+                >The tools behind</span
               >
               <span
-                ><span data-ar="تحليل البيانات." data-en="analyze data."
-                  >analyze data.</span
+                ><span
+                  data-ar="الرؤى المبنية على البيانات."
+                  data-en="data-driven insights."
+                  >data-driven insights.</span
                 ></span
               >
             </h2>
             <p>
               <span
-                data-ar="مجموعة مهارات متطورة تركز على تحليل البيانات والتصور والبرمجة وحل المشكلات."
-                data-en="A growing toolkit focused on data analysis, visualization, programming, and problem solving."
-                >A growing toolkit focused on data analysis, visualization,
-                programming, and problem solving.</span
+                data-ar="مجموعة من التقنيات المستخدمة خلال عملية تحليل البيانات، من إعداد البيانات واستكشافها إلى التصور وإعداد التقارير وذكاء الأعمال."
+                data-en="A collection of technologies used throughout the data analysis process, from data preparation and exploration to visualization, reporting, and business intelligence."
+                >A collection of technologies used throughout the data analysis
+                process, from data preparation and exploration to visualization,
+                reporting, and business intelligence.</span
               >
             </p>
           </div>
-          <div class="skills-grid reveal">
-            <div class="skill-card">
-              <div class="skill-icon excel">
-                <i class="fa-solid fa-file-excel"></i>
-              </div>
-              <h3><span data-ar="Excel" data-en="Excel">Excel</span></h3>
-            </div>
-            <div class="skill-card">
-              <div class="skill-icon powerbi">
-                <i class="fa-solid fa-chart-simple"></i>
-              </div>
-              <h3>
-                <span data-ar="Power BI" data-en="Power BI">Power BI</span>
-              </h3>
-            </div>
-            <div class="skill-card">
-              <div class="skill-icon python">
-                <i class="fa-brands fa-python"></i>
-              </div>
-              <h3><span data-ar="Python" data-en="Python">Python</span></h3>
-            </div>
-            <div class="skill-card">
-              <div class="skill-icon sql">
-                <i class="fa-solid fa-database"></i>
-              </div>
-              <h3><span data-ar="SQL" data-en="SQL">SQL</span></h3>
-            </div>
-            <div class="skill-card">
-              <div class="skill-icon dax">
-                <i class="fa-solid fa-calculator"></i>
-              </div>
-              <h3><span data-ar="DAX" data-en="DAX">DAX</span></h3>
-            </div>
-            <div class="skill-card">
-              <div class="skill-icon tableau">
-                <i class="fa-solid fa-chart-column"></i>
-              </div>
-              <h3><span data-ar="Tableau" data-en="Tableau">Tableau</span></h3>
-            </div>
-            <div class="skill-card">
-              <div class="skill-icon git">
-                <i class="fa-brands fa-git-alt"></i>
-              </div>
-              <h3><span data-ar="Git" data-en="Git">Git</span></h3>
-            </div>
-
-            <div class="skill-card">
-              <div class="skill-icon github">
-                <i class="fa-brands fa-github"></i>
-              </div>
-              <h3><span data-ar="GitHub" data-en="GitHub">GitHub</span></h3>
-            </div>
+          <div class="skill-groups reveal">
+            <article class="skill-group">
+              <header class="skill-group-head">
+                <div class="skill-group-icon">
+                  <i class="fa-solid fa-chart-line"></i>
+                </div>
+                <div class="skill-group-title">
+                  <h3>
+                    <span data-ar="تحليل البيانات" data-en="Data Analysis"
+                      >Data Analysis</span
+                    >
+                  </h3>
+                  <small
+                    ><span data-ar="3 أدوات" data-en="3 tools"
+                      >3 tools</span
+                    ></small
+                  >
+                </div>
+                <span class="skill-group-num" aria-hidden="true">01</span>
+              </header>
+              <ul class="skill-list">
+                <li class="skill-item">
+                  <div class="skill-icon excel">
+                    <i class="fa-solid fa-file-excel"></i>
+                  </div>
+                  <span class="skill-name" data-ar="Excel" data-en="Excel"
+                    >Excel</span
+                  >
+                </li>
+                <li class="skill-item">
+                  <div class="skill-icon python">
+                    <i class="fa-brands fa-python"></i>
+                  </div>
+                  <span class="skill-name" data-ar="Python" data-en="Python"
+                    >Python</span
+                  >
+                </li>
+                <li class="skill-item">
+                  <div class="skill-icon sql">
+                    <i class="fa-solid fa-database"></i>
+                  </div>
+                  <span class="skill-name" data-ar="SQL" data-en="SQL"
+                    >SQL</span
+                  >
+                </li>
+              </ul>
+            </article>
+            <article class="skill-group">
+              <header class="skill-group-head">
+                <div class="skill-group-icon">
+                  <i class="fa-solid fa-chart-pie"></i>
+                </div>
+                <div class="skill-group-title">
+                  <h3>
+                    <span
+                      data-ar="ذكاء الأعمال والتصور"
+                      data-en="Business Intelligence &amp; Visualization"
+                      >Business Intelligence &amp; Visualization</span
+                    >
+                  </h3>
+                  <small
+                    ><span data-ar="4 أدوات" data-en="4 tools"
+                      >4 tools</span
+                    ></small
+                  >
+                </div>
+                <span class="skill-group-num" aria-hidden="true">02</span>
+              </header>
+              <ul class="skill-list">
+                <li class="skill-item">
+                  <div class="skill-icon powerbi">
+                    <i class="fa-solid fa-chart-simple"></i>
+                  </div>
+                  <span class="skill-name" data-ar="Power BI" data-en="Power BI"
+                    >Power BI</span
+                  >
+                </li>
+                <li class="skill-item">
+                  <div class="skill-icon tableau">
+                    <i class="fa-solid fa-chart-column"></i>
+                  </div>
+                  <span class="skill-name" data-ar="Tableau" data-en="Tableau"
+                    >Tableau</span
+                  >
+                </li>
+                <li class="skill-item">
+                  <div class="skill-icon excel">
+                    <i class="fa-solid fa-file-excel"></i>
+                  </div>
+                  <span class="skill-name" data-ar="Excel" data-en="Excel"
+                    >Excel</span
+                  >
+                </li>
+                <li class="skill-item">
+                  <div class="skill-icon dax">
+                    <i class="fa-solid fa-calculator"></i>
+                  </div>
+                  <span class="skill-name" data-ar="DAX" data-en="DAX"
+                    >DAX</span
+                  >
+                </li>
+              </ul>
+            </article>
+            <article class="skill-group">
+              <header class="skill-group-head">
+                <div class="skill-group-icon">
+                  <i class="fa-solid fa-code-branch"></i>
+                </div>
+                <div class="skill-group-title">
+                  <h3>
+                    <span
+                      data-ar="التحكم في الإصدارات"
+                      data-en="Version Control"
+                      >Version Control</span
+                    >
+                  </h3>
+                  <small
+                    ><span data-ar="أداتان" data-en="2 tools"
+                      >2 tools</span
+                    ></small
+                  >
+                </div>
+                <span class="skill-group-num" aria-hidden="true">03</span>
+              </header>
+              <ul class="skill-list">
+                <li class="skill-item">
+                  <div class="skill-icon git">
+                    <i class="fa-brands fa-git-alt"></i>
+                  </div>
+                  <span class="skill-name" data-ar="Git" data-en="Git"
+                    >Git</span
+                  >
+                </li>
+                <li class="skill-item">
+                  <div class="skill-icon github">
+                    <i class="fa-brands fa-github"></i>
+                  </div>
+                  <span class="skill-name" data-ar="GitHub" data-en="GitHub"
+                    >GitHub</span
+                  >
+                </li>
+              </ul>
+            </article>
           </div>
         </div>
       </section>
@@ -939,11 +935,6 @@
                   <span
                     ><span data-ar="Excel" data-en="Excel">Excel</span></span
                   >
-                  <span
-                    ><span data-ar="Tableau" data-en="Tableau"
-                      >Tableau</span
-                    ></span
-                  >
                 </div>
               </div>
             </div>
@@ -1110,13 +1101,10 @@
                     </span>
                   </span>
                   <span>
-                    <span
-                      data-ar="تحليل التسويق
-"
-                      data-en="Marketing Analysis"
-                    >
-                      Marketing Analysis
-                    </span>
+                    <span data-ar="Excel" data-en="Excel"> Excel </span>
+                  </span>
+                  <span>
+                    <span data-ar="Python" data-en="Python"> Python </span>
                   </span>
                 </div>
               </div>
@@ -1476,9 +1464,9 @@
                 <div class="project-tags">
                   <span
                     ><span
-                      data-ar="لوحة تحكم Tableau"
-                      data-en="Tableau Dashboard"
-                      >Tableau Dashboard</span
+                      data-ar="Tableau"
+                      data-en="Tableau"
+                      >Tableau</span
                     ></span
                   >
                   <span
@@ -1654,7 +1642,7 @@
           </a>
           <a
             aria-label="Email"
-            href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=abbasbodi322@gmail.com"
+            href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=abdullaaabbass@gmail.com"
           >
             <i class="fa-solid fa-envelope"></i>
           </a>
