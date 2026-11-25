@@ -150,3 +150,380 @@ body::before {
   -webkit-backdrop-filter: blur(12px);
   backdrop-filter: blur(12px);
 }
+
+
+/* ============================================================
+   HORIZONTAL SCROLLERS (experience / certifications / projects)
+   ============================================================ */
+.hscroll {
+  position: relative;
+}
+
+.hscroll-track {
+  display: flex !important;
+  flex-direction: row !important;
+  gap: 22px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  overscroll-behavior-x: contain;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  padding: 18px 14px 30px;
+  margin-inline: -14px;
+  cursor: grab;
+  outline: none;
+}
+.hscroll-track::-webkit-scrollbar {
+  display: none;
+}
+.hscroll-track.is-dragging {
+  cursor: grabbing;
+  scroll-behavior: auto;
+  user-select: none;
+}
+.hscroll-track.is-dragging a,
+.hscroll-track.is-dragging img {
+  pointer-events: none;
+}
+.hscroll-track:focus-visible {
+  box-shadow: 0 0 0 2px var(--amber-soft);
+  border-radius: var(--radius-l);
+}
+
+/* each card becomes a snap slide */
+.hscroll-track > * {
+  flex: 0 0 min(380px, 86%);
+  scroll-snap-align: start;
+  scroll-margin-inline: 14px;
+  margin: 0;
+}
+.hscroll-track.projects-grid > * {
+  flex-basis: min(480px, 88%);
+}
+.hscroll-track.experience-timeline > * {
+  flex-basis: min(440px, 88%);
+}
+
+/* experience: turn the vertical timeline into a horizontal row */
+.hscroll-track.experience-timeline {
+  padding-inline-start: 14px;
+  gap: 22px;
+}
+.hscroll-track.experience-timeline::before {
+  content: none;
+}
+.hscroll-track.experience-timeline .experience-marker {
+  display: none;
+}
+.hscroll-track.experience-timeline .experience-item {
+  align-items: stretch;
+}
+.hscroll-track.experience-timeline .experience-item:hover .experience-content,
+html[dir="rtl"]
+  .hscroll-track.experience-timeline
+  .experience-item:hover
+  .experience-content {
+  transform: translateY(-8px);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.28),
+    0 26px 46px -26px var(--amber);
+}
+
+/* certificates: equal-height cards, footer pinned to the bottom */
+.hscroll-track.certifications-grid .certificate-card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.hscroll-track.certifications-grid .certificate-content {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+.hscroll-track.certifications-grid .certificate-footer {
+  margin-top: auto;
+}
+
+/* controls bar */
+.hscroll-controls {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-top: 4px;
+}
+.hscroll-progress {
+  position: relative;
+  flex: 1;
+  height: 4px;
+  border-radius: var(--radius-pill);
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  overflow: hidden;
+}
+.hscroll-thumb {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  inset-inline-start: 0;
+  width: 30%;
+  border-radius: var(--radius-pill);
+  background: linear-gradient(90deg, var(--amber), var(--teal));
+  transition:
+    inset-inline-start 0.15s linear,
+    width 0.25s var(--ease);
+}
+.hscroll-buttons {
+  display: flex;
+  gap: 10px;
+}
+.hscroll-btn {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  color: var(--amber);
+  background: var(--surface-2);
+  border: 1px solid var(--border-strong);
+  -webkit-backdrop-filter: blur(14px) saturate(150%);
+  backdrop-filter: blur(14px) saturate(150%);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.2),
+    var(--shadow-stamp);
+  transition:
+    transform 0.3s var(--ease-spring),
+    background 0.25s var(--ease),
+    color 0.25s var(--ease),
+    opacity 0.25s var(--ease);
+}
+.hscroll-btn:hover:not(:disabled) {
+  transform: translateY(-3px);
+  background: linear-gradient(135deg, var(--amber), var(--teal));
+  color: #06101f;
+}
+.hscroll-btn:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+html[dir="rtl"] .hscroll-btn i {
+  transform: scaleX(-1);
+}
+
+@media (max-width: 640px) {
+  .hscroll-track {
+    gap: 14px;
+  }
+  .hscroll-btn {
+    width: 40px;
+    height: 40px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hscroll-track {
+    scroll-behavior: auto;
+  }
+}
+
+/* ============================================================
+   SKILLS — compact mobile layout (2 columns, icon beside name)
+   ============================================================ */
+@media (max-width: 640px) {
+  .skills-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 12px;
+  }
+  .skill-card {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 14px;
+    text-align: start;
+    border-radius: var(--radius-m);
+  }
+  .skill-icon {
+    flex: 0 0 auto;
+    width: 40px;
+    height: 40px;
+    font-size: 1.05rem;
+    margin: 0;
+    border-radius: 12px;
+  }
+  .skill-card h3 {
+    font-size: 0.9rem;
+    margin: 0;
+    min-width: 0;
+    overflow-wrap: anywhere;
+  }
+  /* no sticky hover lift on touch screens */
+  .skill-card:hover {
+    transform: none;
+  }
+  .skill-card:hover .skill-icon {
+    transform: none;
+  }
+}
+@media (max-width: 380px) {
+  .skills-grid {
+    gap: 10px;
+  }
+  .skill-card {
+    padding: 12px 10px;
+    gap: 10px;
+  }
+  .skill-icon {
+    width: 36px;
+    height: 36px;
+  }
+  .skill-card h3 {
+    font-size: 0.84rem;
+  }
+}
+
+/* ============================================================
+   SKILLS — balanced desktop/tablet layout (8 cards = 4 x 2)
+   ============================================================ */
+@media (min-width: 641px) {
+  .skills-grid {
+    grid-template-columns: repeat(4, 1fr) !important;
+    gap: 20px;
+    max-width: 980px;
+    margin-inline: auto;
+  }
+  .skill-card {
+    padding: 30px 18px;
+  }
+}
+
+/* ============================================================
+   PROFILE PHOTO — keep the head in frame inside the round crops
+   (object-fit: cover centers the photo and cuts the top; anchor it
+   to the top instead. Adjust the 2nd value: 0% = top, 100% = bottom)
+   ============================================================ */
+.nav-profile-pic,
+.profile-modal-image img {
+  object-fit: cover;
+  object-position: 50% 0%;
+}
+
+/* ============================================================
+   ABOUT — heading lives in the left column, cards sit beside it
+   ============================================================ */
+.about-text .section-heading {
+  margin-bottom: 28px;
+}
+
+/* ============================================================
+   ABOUT CARDS — horizontal swipe on mobile
+   ============================================================ */
+@media (max-width: 640px) {
+  .about-cards {
+    display: flex !important;
+    grid-template-columns: none !important;
+    gap: 14px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    overscroll-behavior-x: contain;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    /* bleed to the screen edges so the next card peeks in */
+    margin-inline: -24px;
+    padding: 12px 24px 24px;
+    scroll-padding-inline: 24px;
+  }
+  .about-cards::-webkit-scrollbar {
+    display: none;
+  }
+  .about-card {
+    flex: 0 0 76%;
+    min-width: 230px;
+    scroll-snap-align: start;
+  }
+  .about-card:hover {
+    transform: none;
+  }
+}
+@media (max-width: 380px) {
+  .about-cards {
+    margin-inline: -14px;
+    padding-inline: 14px;
+    scroll-padding-inline: 14px;
+  }
+}
+
+/* ============================================================
+   SERVICES — horizontal swipe on mobile
+   ============================================================ */
+@media (max-width: 640px) {
+  .services-grid {
+    display: flex !important;
+    grid-template-columns: none !important;
+    gap: 14px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    overscroll-behavior-x: contain;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    margin-inline: -24px;
+    padding: 12px 24px 24px;
+    scroll-padding-inline: 24px;
+  }
+  .services-grid::-webkit-scrollbar {
+    display: none;
+  }
+  .service-card {
+    flex: 0 0 76%;
+    min-width: 230px;
+    scroll-snap-align: start;
+  }
+  /* cards beyond the screen edge must already be visible */
+  .services-grid .service-card.reveal {
+    opacity: 1;
+    transform: none;
+  }
+  .service-card:hover,
+  .service-card:hover > i {
+    transform: none;
+  }
+}
+@media (max-width: 380px) {
+  .services-grid {
+    margin-inline: -14px;
+    padding-inline: 14px;
+    scroll-padding-inline: 14px;
+  }
+}
+
+/* ============================================================
+   Mobile-only scroll controls (About cards, Services)
+   ============================================================ */
+@media (min-width: 641px) {
+  .hscroll-mobile .hscroll-controls {
+    display: none !important;
+  }
+}
+@media (max-width: 640px) {
+  .hscroll-mobile .hscroll-controls {
+    margin-top: 0;
+  }
+}
+.hscroll {
+  min-width: 0;
+  max-width: 100%;
+}
+
+/* ============================================================
+   ABOUT — vertically center the cards next to the text (desktop)
+   ============================================================ */
+@media (min-width: 901px) {
+  .about-grid {
+    align-items: center;
+  }
+  .about-cards {
+    gap: 20px;
+  }
+}

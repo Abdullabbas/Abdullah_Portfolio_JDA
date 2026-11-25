@@ -375,7 +375,7 @@ const projectData = {
     tags: ["Tableau", "Sales Analytics"],
     github: "#",
     showGithub: false,
-    live:"https://public.tableau.com/app/profile/abdullah.ahmed6826/viz/TablaeuDashboardAssignment/BeanCafeDashboard",
+    live: "https://public.tableau.com/app/profile/abdullah.ahmed6826/viz/TablaeuDashboardAssignment/BeanCafeDashboard",
     showLive: true,
 
     en: {
@@ -817,3 +817,138 @@ if (dashboardCard && !prefersReducedMotion && !isTouchDevice) {
       "perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1,1,1)";
   });
 }
+
+
+/* =========================
+   HORIZONTAL SCROLLERS
+========================= */
+function initHScroll(selector, label, mobileOnly = false) {
+  const track = document.querySelector(selector);
+  if (!track) return;
+
+  // wrap the existing grid
+  const wrap = document.createElement("div");
+  wrap.className = mobileOnly ? "hscroll hscroll-mobile" : "hscroll";
+  track.parentNode.insertBefore(wrap, track);
+  wrap.appendChild(track);
+
+  if (!mobileOnly) {
+    track.classList.add("hscroll-track");
+    track.setAttribute("tabindex", "0");
+    track.setAttribute("role", "region");
+    track.setAttribute("aria-label", label);
+  }
+
+  // cards off-screen to the side never intersect vertically,
+  // so show them right away instead of waiting for scroll-reveal
+  track
+    .querySelectorAll(".reveal")
+    .forEach((el) => el.classList.add("visible"));
+
+  // controls
+  const controls = document.createElement("div");
+  controls.className = "hscroll-controls";
+  controls.innerHTML = `
+    <div class="hscroll-progress"><div class="hscroll-thumb"></div></div>
+    <div class="hscroll-buttons">
+      <button class="hscroll-btn hscroll-prev" aria-label="Previous"><i class="fa-solid fa-chevron-left"></i></button>
+      <button class="hscroll-btn hscroll-next" aria-label="Next"><i class="fa-solid fa-chevron-right"></i></button>
+    </div>`;
+  wrap.appendChild(controls);
+
+  const prev = controls.querySelector(".hscroll-prev");
+  const next = controls.querySelector(".hscroll-next");
+  const thumb = controls.querySelector(".hscroll-thumb");
+
+  const dir = () => (getComputedStyle(track).direction === "rtl" ? -1 : 1);
+  const step = () => {
+    const card = track.firstElementChild;
+    const gap = parseFloat(getComputedStyle(track).columnGap) || 0;
+    return (
+      (card ? card.getBoundingClientRect().width : track.clientWidth) + gap
+    );
+  };
+
+  function update() {
+    const max = track.scrollWidth - track.clientWidth;
+    const pos = Math.abs(track.scrollLeft);
+    const ratio = max > 0 ? pos / max : 0;
+    const thumbW = Math.max(12, (track.clientWidth / track.scrollWidth) * 100);
+    thumb.style.width = thumbW + "%";
+    thumb.style.insetInlineStart = ratio * (100 - thumbW) + "%";
+    prev.disabled = pos <= 2;
+    next.disabled = pos >= max - 2;
+    controls.style.display = max > 2 ? "" : "none";
+  }
+
+  prev.addEventListener("click", () =>
+    track.scrollBy({ left: -step() * dir(), behavior: "smooth" }),
+  );
+  next.addEventListener("click", () =>
+    track.scrollBy({ left: step() * dir(), behavior: "smooth" }),
+  );
+
+  track.addEventListener("scroll", update, { passive: true });
+  window.addEventListener("resize", update);
+  track.addEventListener("keydown", (e) => {
+    if (e.key === "ArrowRight") (dir() === 1 ? next : prev).click();
+    if (e.key === "ArrowLeft") (dir() === 1 ? prev : next).click();
+  });
+
+  // mouse drag (touch already scrolls natively) — desktop scrollers only
+  if (!mobileOnly) {
+  let startX = 0,
+    startScroll = 0,
+    down = false,
+    moved = false;
+  track.addEventListener("pointerdown", (e) => {
+    if (e.pointerType !== "mouse" || e.button !== 0) return;
+    down = true;
+    moved = false;
+    startX = e.clientX;
+    startScroll = track.scrollLeft;
+  });
+  window.addEventListener("pointermove", (e) => {
+    if (!down) return;
+    const dx = e.clientX - startX;
+    if (!moved && Math.abs(dx) > 5) {
+      moved = true;
+      track.classList.add("is-dragging");
+      track.style.scrollSnapType = "none";
+    }
+    if (moved) track.scrollLeft = startScroll - dx;
+  });
+  window.addEventListener("pointerup", () => {
+    if (!down) return;
+    down = false;
+    if (moved) {
+      track.classList.remove("is-dragging");
+      track.style.scrollSnapType = "";
+    }
+  });
+  // don't trigger "View details" etc. after a drag
+  track.addEventListener(
+    "click",
+    (e) => {
+      if (moved) {
+        e.stopPropagation();
+        e.preventDefault();
+        moved = false;
+      }
+    },
+    true,
+  );
+  }
+
+  update();
+  // images/fonts change widths after load
+  window.addEventListener("load", update);
+}
+
+initHScroll(".experience-timeline", "Experience and trainings");
+initHScroll(".certifications-grid", "Certifications");
+initHScroll(".projects-grid", "Projects");
+// swipe rows that only exist on mobile (controls hidden on desktop via CSS)
+initHScroll(".about-cards", "About highlights", true);
+initHScroll(".services-grid", "Services", true);
+
