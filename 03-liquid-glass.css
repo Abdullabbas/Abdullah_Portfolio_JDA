@@ -1315,3 +1315,28 @@ p, li {
     padding-block: 13px;
   }
 }
+
+/* hero buttons on phones: main button on its own row, the other two
+   side by side underneath (instead of three stacked buttons) */
+@media (max-width: 480px) {
+  .hero-buttons {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    align-items: stretch;
+  }
+  .hero-buttons > :first-child {
+    grid-column: 1 / -1;
+  }
+  .hero-buttons > * {
+    width: 100%;
+    min-width: 0;
+    justify-content: center;
+    text-align: center;
+  }
+  .hero-buttons > :not(:first-child) {
+    padding-inline: 10px;
+    font-size: 0.88rem;
+    white-space: nowrap;
+  }
+}
